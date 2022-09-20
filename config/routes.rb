@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "top_page#top"
 
+  get 'simulation_page', to: 'simulation#main'
+
   # root  'static_pages_controller#top'
   
   # resources :users, only: %i[new create]
