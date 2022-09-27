@@ -168,6 +168,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     strscan (3.0.4)
+    tailwindcss-rails (2.0.14-x86_64-darwin)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   rails (~> 6.1.7)
   sass-rails (>= 6)
   spring
+  tailwindcss-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
