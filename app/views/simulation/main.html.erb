@@ -1,4 +1,19 @@
 <h1>シミュレーションページ</h1>
-<%= image_tag 'ear_image_1920.jpg', class: 'ear-image', width: 200, height: 250 %>
-<%= image_tag 'pierce.png', width: 100, heigth:100, cmanOMat: "move" %>
+<%= image_tag 'ear_image_1920.jpg', class: 'ear-image', width: 350, height: 400 %>
 
+<div class="pierce_images" >
+  <%= image_tag 'pierce.png', class: "drag-and-drop", id: "pierce", width: 100, heigth:100 %>
+  <%= image_tag 'ring_pierce.png', class: "drag-and-drop", id: "ring_pierce", width: 300, heigth:300 %>
+</div>
+
+<style>
+  .drag-and-drop {
+    cursor: move;
+    position: absolute;
+    z-index: 1000;
+  }
+
+  .drag {
+      z-index: 1001;
+  }
+</style>
