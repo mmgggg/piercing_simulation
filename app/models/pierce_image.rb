@@ -1,0 +1,2 @@
+class PierceImage < ApplicationRecord
+end
