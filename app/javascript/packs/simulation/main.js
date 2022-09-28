@@ -9,8 +9,8 @@ document.addEventListener('turbolinks:load', () => {
   
     //マウスが要素内で押されたとき、又はタッチされた際の関数
     for(var i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("mousedown", mdown, false);
-        elements[i].addEventListener("touchstart", mdown, false);
+      elements[i].addEventListener("mousedown", mdown, false);
+      elements[i].addEventListener("touchstart", mdown, false);
     }
   
     //マウスが押された際の関数
@@ -44,9 +44,9 @@ document.addEventListener('turbolinks:load', () => {
 
       //同様にマウスとタッチの差異を吸収
       if(e.type === "mousemove") {
-          var event = e;
+        var event = e;
       } else {
-          var event = e.changedTouches[0];
+        var event = e.changedTouches[0];
       }
 
       //フリックしたときに画面を動かさないようにデフォルト動作を抑制
@@ -66,52 +66,44 @@ document.addEventListener('turbolinks:load', () => {
   
     //マウスボタンが上がった際の関数
     function mup(e) {
-        var drag = document.getElementsByClassName("drag")[0];
-  
-        //ムーブベントハンドラの消去
-        document.body.removeEventListener("mousemove", move, false);
-        drag.removeEventListener("mouseup", mup, false);
-        document.body.removeEventListener("touchmove", move, false);
-        drag.removeEventListener("touchend", mup, false);
-  
-        //クラス名 .drag も消す
-        drag.classList.remove("drag");
+      var drag = document.getElementsByClassName("drag")[0];
+
+      //ムーブベントハンドラの消去
+      document.body.removeEventListener("mousemove", move, false);
+      drag.removeEventListener("mouseup", mup, false);
+      document.body.removeEventListener("touchmove", move, false);
+      drag.removeEventListener("touchend", mup, false);
+
+      //クラス名 .drag も消す
+      drag.classList.remove("drag");
     }
-      
-      //idが「addbutton」の要素を取得
-      let addEar = document.getElementById("ear-image");
-      
-      //他のページではidがear-imageの要素が存在しないためnullになるので、nullにaddEventlistenerしない防止策
-      if (!addEar){ return false;}
-
-      //ボタンをクリックしたときに実行(イベントリスナー使用：ie9は以上で動作)
-      addEar.addEventListener("click", function(){
-      
-      //idが「boxes」の要素を取得
-      let ears = document.getElementById("ear-image");
-
-      //「boxes」の要素の先頭にある子要素を複製（コピー）
-      let clone = ears.firstElementChild.cloneNode(true);
-
-      //「boxes」の要素の最後尾に複製した要素を追加
-      ears.appendChild(clone); 
-      });
-
-
-  
   })()
 
   //複製コード
   var copyButton = document.getElementById("button");
   copyButton.addEventListener('click', function() {
-    var element = document.getElementById("pierce");
-    // ノードを取得
+    //コピーする対象をelementに代入
+    var element = document.getElementById("circle");
+    // コピー元のノードを取得
     var cloneElement = element.cloneNode(true);
+    //複製したやつにlassを付け足す
+    cloneElement.classList.add("drag-and-drop");
     // class drag-and-dropに追加
-    var addImage = document.getElementsByClassName("ear-image");
-    addImage.document.createElement("div");
-    addImage.classList.add("drag-and-drop");
-    //addImage[0].appendChild(cloneElement);
+    addImage = document.getElementsByClassName("add-drag-and-drop");
+    addImage[0].appendChild(cloneElement);
   });
 
-})
+});
+
+
+
+// //成功複製コード
+// var copyButton = document.getElementById("button");
+// copyButton.addEventListener('click', function() {
+//   var element = document.getElementById("pierce");
+//   // ノードを取得
+//   var cloneElement = element.cloneNode(true);
+//   // class drag-and-dropに追加
+//   addImage = document.getElementsByClassName("drag-and-drop")
+//   addImage[0].appendChild(cloneElement);
+// });

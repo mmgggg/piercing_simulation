@@ -1,13 +1,21 @@
 <h1>シミュレーションページ</h1>
 <div class="ear-image">
-  <%= image_tag 'ear_image_1920.jpg', id: "ear-image", width: 350, height: 400 %>
-  <%# <div class="drag-and-drop" id="copy-pierce-images"></div> %>
+  <%= image_tag "ear_image_1920.jpg", id: "ear-image" %>
+  <div class="add-drag-and-drop"></div>
 </div>
 
-<div class="pierce-images" >
-  <%= image_tag 'pierce.png', id: "pierce", width: 100, height:100 %>
-  <%= image_tag 'ring_pierce.png', id: "ring_pierce", width: 300, height:300 %>
+<div class="pierce-images">
+  <table>
+    <tr>
+      <td><%= image_tag 'pierce_images/circle.png', id: "circle" %></td>
+      <td><%= image_tag 'pierce_images/ring.png', id: "ring" %></td>
+      <td><%= image_tag 'pierce_images/barbell.png', id: "barbell" %></td>
+      <td><%= image_tag 'pierce_images/industrial.png', id: "industrial" %></td>
+    </tr>
+    <tr>
+      <%= if %>
+      <td><button type="button" id="button" >複製</button></td>
+      <td><button type="button" id="button" >複製</button></td>
+    </tr>
+  </table>
 </div>
-
-<button type="button" id="button" >複製</button>
-
