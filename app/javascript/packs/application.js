@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 
-// import "stylesheets/application"
+import "stylesheets/application"
 
 
 import Rails from "@rails/ujs"
