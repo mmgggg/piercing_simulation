@@ -52,5 +52,3 @@ gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
 
-#tailwindcssインストール
-gem 'tailwindcss-rails'

@@ -4,14 +4,13 @@
 // that code so it'll be compiled.
 
 
-import "stylesheets/application"
+//import "stylesheets/application"
 
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-//import "../css/tailwindcss.css";
 
 Rails.start()
 Turbolinks.start()
@@ -19,3 +18,6 @@ ActiveStorage.start()
 
 //自作jsファイル読み込み用
 import "./simulation/main"
+
+//tailwind設定読み込み用
+import '../../assets/stylesheets/application.css'
