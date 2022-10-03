@@ -52,3 +52,7 @@ gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
 
+#画像アップロード機能用
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'carrierwave'

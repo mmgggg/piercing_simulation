@@ -15,12 +15,9 @@ module.exports = {
   plugins: [
     require('daisyui'),
   ],
+
+  daisyui: {
+    themes: "light",
+  },
 }
 
-// plugins: [
-//   require('@tailwindcss/forms'),
-//   require('@tailwindcss/aspect-ratio'),
-//   require('@tailwindcss/typography'),
-//   require('daisyui'),    // ← 追記する
-// ],
-// }

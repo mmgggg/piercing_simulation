@@ -23,6 +23,8 @@ module PiercingSimulation
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    #carrywaveを使うために追記
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
     # Configuration for the application, engines, and railties goes here.
     #
