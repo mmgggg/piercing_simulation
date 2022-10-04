@@ -9,7 +9,7 @@ class Admin::PierceImagesController < Admin::BaseController
   def create
     @pierce_image = PierceImage.new(pierce_image_params)
     if @pierce_image.save
-      flash.now[:success] = "アップロード成功"
+      flash.now[:notice] = "アップロード成功"
       redirect_to admin_root_path
     else
       flash.now[:danger] = "アップロード失敗"
