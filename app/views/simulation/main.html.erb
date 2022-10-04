@@ -1,23 +1,23 @@
 <div class="page_title" style="font-size: 40px; margin-bottom: 20px;">
   <h1>Simulation</h1>
 </div>
-<div class="flex flex-col w-full lg:flex-row" style="margin-left: 350px;">
- <%# 耳画像   %>
-  <div class="grid flex-grow h-32 card bg-base-300 rounded-box" style="width: 350px; height: 400px; margin-bottom: 50px;">
+<div class="flex flex-col w-full lg:flex-row" style="margin-left: 300px; padding-bottom: 10px;">
+ <%# 耳画像 %>
+  <div class="grid">
     <div class="ear-image">
-      <%= image_tag "ear_image_1920.jpg", id: "ear-image" %>
+      <%= image_tag "ear_image_1920.jpg", id: "ear-image", width: 350, height: 400 %>
       <div class="add-drag-and-drop"></div>
     </div>
   </div>
-  <div class="divider lg:divider-horizontal" style="margin: 20px;"></div>
+  <div class="divider lg:divider-horizontal"></div>
   <%# ピアス画像データ%>
   <% if @pierce_image.present? %>
     <% @pierce_image.each do |pierce_image| %>
-      <div class="card w-96 bg-base-100 " style="margin-right: 20px; height: 78px;">
-        <figure class="px-10 pt-10" style="width: 30px; height: 30px; margin: auto;">
+      <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
+        <figure class="">
           <%= image_tag pierce_image.pierce_image.url %>
         </figure>
-        <div class="card-body items-center text-center" style="padding: 0px;">
+        <div class="card-body items-center text-center">
           <div class="card-actions justify-end">
             <button class="btn btn-primary" id="button" >複製</button>
           </div>
