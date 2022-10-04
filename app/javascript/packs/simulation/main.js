@@ -83,12 +83,12 @@ document.addEventListener('turbolinks:load', () => {
   var copyButton = document.getElementById("button");
   copyButton.addEventListener('click', function() {
     //コピーする対象をelementに代入
-    var element = document.getElementById("circle");
+    var element = document.getElementById("image");
     // コピー元のノードを取得
     var cloneElement = element.cloneNode(true);
     //複製したやつにlassを付け足す
     cloneElement.classList.add("drag-and-drop");
-    // class drag-and-dropに追加
+    // class add-drag-and-dropに追加
     addImage = document.getElementsByClassName("add-drag-and-drop");
     addImage[0].appendChild(cloneElement);
   });

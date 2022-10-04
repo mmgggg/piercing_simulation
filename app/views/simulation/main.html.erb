@@ -5,8 +5,12 @@
  <%# 耳画像 %>
   <div class="grid">
     <div class="ear-image">
-      <%= image_tag "ear_image_1920.jpg", id: "ear-image", width: 350, height: 400 %>
-      <div class="add-drag-and-drop"></div>
+      <div class="indicator">
+        <span class="indicator-item indicator-center indicator-middle"><div class="add-drag-and-drop"></div></span> 
+        <div class="grid w-32 h-32 bg-base-300 place-items-center">
+          <%= image_tag "ear_image_1920.jpg", id: "ear-image", width: 350, height: 400 %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="divider lg:divider-horizontal"></div>
@@ -14,7 +18,7 @@
   <% if @pierce_image.present? %>
     <% @pierce_image.each do |pierce_image| %>
       <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
-        <figure class="">
+        <figure id="image">
           <%= image_tag pierce_image.pierce_image.url %>
         </figure>
         <div class="card-body items-center text-center">
@@ -28,3 +32,4 @@
     <p>”データがありません"</p>
   <% end %>
 </div>
+
