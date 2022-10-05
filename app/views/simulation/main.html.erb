@@ -25,7 +25,7 @@
         </figure>
         <div class="card-body items-center text-center">
           <div class="card-actions justify-end">
-            <button class="btn btn-primary" id= "<%= "button-#{n + 1}"%>" onclick="clickDisplayAlert(this.id)">複製</button>
+            <button class="btn btn-primary" id= "<%= "button-#{n + 1}"%>">複製</button>
           </div>
         </div>
       </div>
@@ -34,3 +34,5 @@
     <p>”データがありません"</p>
   <% end %>
 </div>
+
+<%= javascript_pack_tag 'simulation/main' %>

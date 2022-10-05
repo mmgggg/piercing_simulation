@@ -80,10 +80,10 @@ document.addEventListener('turbolinks:load', () => {
   })()
 
   //複製コード
-  var copyButton = document.getElementById("button");
+  var copyButton = document.getElementById("button-1");
   copyButton.addEventListener('click', function() {
     //コピーする対象をelementに代入
-    var element = document.getElementById("image");
+    var element = document.getElementById("image-1");
     // コピー元のノードを取得
     var cloneElement = element.cloneNode(true);
     //複製したやつにlassを付け足す
@@ -92,9 +92,9 @@ document.addEventListener('turbolinks:load', () => {
     addImage = document.getElementsByClassName("add-drag-and-drop");
     addImage[0].appendChild(cloneElement);
   });
+  
 
 });
-
 
 
 // //成功複製コード

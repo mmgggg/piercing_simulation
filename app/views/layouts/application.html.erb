@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %> 
+    
+    <%# CSS読み込み設定%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %> 
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
   </head>
 
   <body>
     <main class="container mx-auto px-5 mt-28 ">
-    <%# container mx-auto mt-28 px-5 flex %>
       <%= yield %>
     </main>
   </body>
