@@ -1,0 +1,13 @@
+<h1> ピアス画像アップロード</h1>
+
+<div class="form-group">
+  <%= form_with model: [:admin, @pierce_image], local: true do |f| %>
+    <%= f.label :pierce_image_name %>
+    <%= f.text_field :pierce_image_name %>
+</div>
+<div class="form-group">
+    <%= f.label :pierce_image %>
+    <%= f.file_field :pierce_image %>
+</div>
+ <%= f.submit class: "btn btn-primary" %>
+ <% end %>
