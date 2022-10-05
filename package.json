@@ -10,6 +10,7 @@
     "admin-lte": "^3.1",
     "autoprefixer": "^9",
     "daisyui": "^2.31.0",
+    "moveable": "^0.36.3",
     "postcss": "^7",
     "tailwindcss": "3",
     "turbolinks": "^5.2.0",
