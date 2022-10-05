@@ -18,17 +18,14 @@
   <div class="divider lg:divider-horizontal"></div>
   <%# ピアス画像データ%>
   <% if @pierce_image.present? %>
-    <% @pierce_image.each do |pierce_image| %>
+    <% @pierce_image.each_with_index do |pierce_image, n| %>
       <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
         <figure id="image" style="width: 20px; height:20px;">
           <%= image_tag pierce_image.pierce_image.url %>
         </figure>
         <div class="card-body items-center text-center">
           <div class="card-actions justify-end">
-            <% number = @pierce_image.length %>
-            <% (1..number).each do |n| %>
-            <button class="btn btn-primary" id= "<%= "button-#{n}" %>">複製</button>
-            <% end %>
+            <button class="btn btn-primary" id= "<%= "button-#{n + 1}"%>" onClick="reply_click(this.id)">複製</button>
           </div>
         </div>
       </div>
@@ -37,5 +34,3 @@
     <p>”データがありません"</p>
   <% end %>
 </div>
-
-<%#%>
