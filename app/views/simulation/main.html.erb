@@ -20,12 +20,12 @@
   <% if @pierce_image.present? %>
     <% @pierce_image.each_with_index do |pierce_image, n| %>
       <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
-        <figure id="image" style="width: 20px; height:20px;">
+        <figure id= "<%= "image-#{n + 1}"%>" style="width: 20px; height:20px;">
           <%= image_tag pierce_image.pierce_image.url %>
         </figure>
         <div class="card-body items-center text-center">
           <div class="card-actions justify-end">
-            <button class="btn btn-primary" id= "<%= "button-#{n + 1}"%>" onClick="reply_click(this.id)">複製</button>
+            <button class="btn btn-primary" id= "<%= "button-#{n + 1}"%>" onclick="clickDisplayAlert(this.id)">複製</button>
           </div>
         </div>
       </div>
