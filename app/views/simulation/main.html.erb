@@ -1,3 +1,18 @@
+<%# <script type="text/javascript">
+  function copy_image(clicked_id){
+    //複製コード
+    //コピーする対象をelementに代入
+    var element = document.getElementById(clicked_id);
+    // コピー元のノードを取得
+    var cloneElement = element.cloneNode(true);
+    //複製したやつにlassを付け足す
+    cloneElement.classList.add("drag-and-drop");
+    // class add-drag-and-dropに追加
+    addImage = document.getElementsByClassName("add-drag-and-drop");
+    addImage[0].appendChild(cloneElement);
+  }
+</script> %>
+
 <div class="page_title" style="font-size: 40px; margin-bottom: 20px;">
   <h1>Simulation</h1>
 </div>
@@ -20,13 +35,14 @@
   <% if @pierce_image.present? %>
     <% @pierce_image.each_with_index do |pierce_image, n| %>
       <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
-        <figure id= "<%= "image-#{n + 1}"%>" style="width: 20px; height:20px;">
+        <figure id= "<%= "image-#{n + 1}"%>" onClick="copy_image(this.id)" style="width: 20px; height:20px;">
           <%= image_tag pierce_image.pierce_image.url %>
         </figure>
         <div class="card-body items-center text-center">
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary" id= "<%= "button-#{n + 1}"%>">複製</button>
-          </div>
+          <p><%= pierce_image.pierce_image_name %>
+          <%# <div class="card-actions justify-end">
+            <%# <button class="btn btn-primary" id="<%= "button-#{n + 1}">複製</button> %>
+          <%# </div> %>
         </div>
       </div>
     <% end %>
