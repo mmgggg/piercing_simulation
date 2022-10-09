@@ -1,35 +1,21 @@
-<%# <script type="text/javascript">
-  function copy_image(clicked_id){
-    //複製コード
-    //コピーする対象をelementに代入
-    var element = document.getElementById(clicked_id);
-    // コピー元のノードを取得
-    var cloneElement = element.cloneNode(true);
-    //複製したやつにlassを付け足す
-    cloneElement.classList.add("drag-and-drop");
-    // class add-drag-and-dropに追加
-    addImage = document.getElementsByClassName("add-drag-and-drop");
-    addImage[0].appendChild(cloneElement);
-  }
-</script> %>
+ <%# <script type="module" src="main.js "></script> %>
+ <script src="//daybrush.com/moveable/release/latest/dist/moveable.min.js"></script>
 
 <div class="page_title" style="font-size: 40px; margin-bottom: 20px;">
   <h1>Simulation</h1>
 </div>
 <div class="flex flex-col w-full lg:flex-row" style="margin-left: 300px; padding-bottom: 10px;  ">
  <%# 耳画像 %>
-  <div class="grid">
-    <div class="ear-image">
-      <div class="indicator">
-        <span class="indicator-item indicator-center indicator-middle">
-          <div class="add-drag-and-drop" ></div>
-        </span> 
-        <div class="grid w-32 h-32 bg-base-300 place-items-center" style="width: 350px; height: 400px;">
-          <%= image_tag "ear_image_1920.jpg", id: "ear-image"%>
-        </div>
+  <canvas id="ear-image" width="350" height="450">
+    <div class="indicator">
+      <span class="indicator-item indicator-center indicator-middle">
+        <div class="add-drag-and-drop" ></div>
+      </span> 
+      <div class="grid w-32 h-32 bg-base-300 place-items-center">
+        <%# <%= image_tag "ear_image_1920.jpg", id: "ear-image"%> 
       </div>
     </div>
-  </div>
+  </canvas>
   <div class="divider lg:divider-horizontal"></div>
   <%# ピアス画像データ%>
   <% if @pierce_image.present? %>
@@ -50,5 +36,7 @@
     <p>”データがありません"</p>
   <% end %>
 </div>
-
+<div class="download-button">
+   <button class="btn btn-primary" style="margin-left: 400px;"> ダウンロード</button>
+</div>
 <%= javascript_pack_tag 'simulation/main' %>
