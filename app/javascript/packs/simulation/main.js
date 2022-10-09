@@ -19,21 +19,18 @@ document.addEventListener('turbolinks:load', () => {
     var element = document.getElementById(clicked_id);
     // コピー元のノードを取得
     var cloneElement = element.cloneNode(true);
-    //複製したやつにlassを付け足す
-    cloneElement.classList.add("drag-and-drop");
-    //コピーした画像にidを一つずつ付与
-    var head = "copy-image";
-    for(var i=0; i<=cloneElement.length-1; i++){
-      cloneElement.setAttribute("id", head+i);
-    }
-
     // class add-drag-and-dropに追加
     addImage = document.getElementsByClassName("add-drag-and-drop");
     addImage[0].appendChild(cloneElement);
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
-    //コピーした画像からidを削除
-    //cloneElement.removeAttribute("id");
+    // コピーした画像のidを書き換える
+    var head = "copy-image";
+    var length = document.querySelector('.add-drag-and-drop').childElementCount;
+    for(var i=1; i <= length; i++){
+      cloneElement.id = head + i;
+    } 
+
   };  
 
   
