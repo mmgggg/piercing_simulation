@@ -1,0 +1,14 @@
+ja:
+ defaults: #defaultsは全てに共通するものにつける
+   login: 'ログイン'
+   email: 'メールアドレス'
+ users:
+   new:    
+     email: 'メールアドレス'
+     password: 'パスワード'
+     password_confirmation: 'パスワード確認'
+     name: '名前'
+ user_sessions:
+   new:
+     email: 'メールアドレス'
+     password: 'パスワード'
