@@ -24,6 +24,8 @@ document.addEventListener('turbolinks:load', () => {
     addImage[0].appendChild(cloneElement);
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
+    //新しくonclick属性を付与
+    cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     // コピーした画像のidを書き換える
     var head = "copy-image";
     var length = document.querySelector('.add-drag-and-drop').childElementCount;
@@ -32,28 +34,30 @@ document.addEventListener('turbolinks:load', () => {
     } 
 
   };  
+  
+  //moveable実装コード
+  window.useMoveable = function (clicked_id){
+    const move = new Moveable(document.body, {
+      target: document.querySelector(clicked_id),
+      draggable: true,
+      resizable: true,
+      keepRatio: true,
+      rotatable: true
+    });
 
-  
-  const move = new Moveable(document.body, {
-    target: document.querySelector("#image-4"),
-    draggable: true,
-    resizable: true,
-    keepRatio: true,
-    rotatable: true
-  });
-
-  move.on("drag", ({ target, transform }) => {
-    target.style.transform = transform;
-  });
-  
-  move.on("resize", ({ target, width, height }) => {
-    target.style.width = width + "px";
-    target.style.height = height + "px";
-  });
-  
-  move.on("rotate", ({ target, transform }) => {
-    target.style.transform = transform
-  });
+    move.on("drag", ({ target, transform }) => {
+      target.style.transform = transform;
+    });
+    
+    move.on("resize", ({ target, width, height }) => {
+      target.style.width = width + "px";
+      target.style.height = height + "px";
+    });
+    
+    move.on("rotate", ({ target, transform }) => {
+      target.style.transform = transform
+    });
+  };
   
   
 });
