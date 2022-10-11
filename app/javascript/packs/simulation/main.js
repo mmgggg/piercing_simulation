@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   //moveable実装コード
   window.useMoveable = function (clicked_id){
     const move = new Moveable(document.body, {
-      target: document.querySelector(clicked_id),
+      target: document.querySelector(`#${clicked_id}`),
       draggable: true,
       resizable: true,
       keepRatio: true,
