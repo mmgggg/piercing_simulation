@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  #ユーザー登録
+  resources :users, only: %i[new create]
+
+  #管理者ページ
   namespace :admin do
     resources :pierce_images, only: %i[index new edit create update destroy]
     root "dashboards#index"
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root "top_page#top"
 

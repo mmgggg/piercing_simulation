@@ -56,3 +56,6 @@ gem 'net-pop'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'carrierwave'
+
+#ユーザー機能
+gem 'sorcery'
