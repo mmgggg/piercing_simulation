@@ -59,5 +59,15 @@ document.addEventListener('turbolinks:load', () => {
     });
   };
   
-  
+  //画像の保存  
+  var btn = document.getElementById("download-btn");
+  btn.addEventListener("click",() => {
+    html2canvas(document.querySelector(".indicator")).then(canvas => { 
+      let downloadEle = document.createElement("a");
+      downloadEle.href = canvas.toDataURL("image/png");
+      downloadEle.download = "canvas.png";
+      downloadEle.click();
+    });
+  });
+
 });
