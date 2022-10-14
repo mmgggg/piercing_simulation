@@ -10,8 +10,9 @@ Rails.application.routes.draw do
 
   #管理者ページ
   namespace :admin do
-    resources :pierce_images, only: %i[index new edit create update destroy]
     root "dashboards#index"
+    resources :pierce_images, only: %i[index new edit create update destroy]
+    
   end
 
   root "top_page#top"
