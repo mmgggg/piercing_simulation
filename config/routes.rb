@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :pierce_images, only: %i[index new edit create update destroy]
     root "dashboards#index"
+    resources :pierce_images, only: %i[index new edit create update destroy]
+    
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

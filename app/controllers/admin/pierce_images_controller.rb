@@ -1,6 +1,8 @@
 class Admin::PierceImagesController < Admin::BaseController
 
-  def index; end
+  def index
+    @pierce_images = PierceImage.all
+  end
 
   def new
     @pierce_image = PierceImage.new
@@ -10,10 +12,16 @@ class Admin::PierceImagesController < Admin::BaseController
     @pierce_image = PierceImage.new(pierce_image_params)
     if @pierce_image.save
       flash.now[:success] = "アップロード成功"
-      redirect_to admin_root_path
+      redirect_to admin_pierce_images_path
     else
       flash.now[:danger] = "アップロード失敗"
     end
+  end
+
+  def destroy
+    @pierce_image = PierceImage.find(params[:id])
+    @pierce_image.destroy!
+    redirect_to admin_pierce_images_path
   end
 
   def pierce_image_params
