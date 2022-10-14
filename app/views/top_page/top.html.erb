@@ -1,14 +1,14 @@
-<h1>Piercing Simulation</h1>
+<div class="container mx-auto">
+  <div class="menu-button" >
+    <div class="login btn btn-primary">
+      <%= link_to "Login", login_path %>
+    </div>
+    <div class="guest-user btn btn-primary">
+      <%= link_to "Guest User", simulation_page_path %>
+    </div>
+  </div>
+  <div class="newuser">
+    <%= link_to "ユーザー登録はこちら", new_user_path, class: 'btn btn-default' %>
+  </div>
 
-<%= link_to "Login", login_path, class: "btn btn-primary" %>
-<%= link_to "Guest User", simulation_page_path, class: 'btn btn-primary' %>
-<br>
-<br>
-<%= link_to "ユーザー登録はこちら", new_user_path, class: 'btn btn-default' %>
-<br>
-<br>
-<%= link_to "About", "/" %>
-<%= link_to "利用規約", "/" %>
-<%= link_to "プライバシーポリシー", "/" %>
-<%= link_to "お問合せ", "/" %>
-
+</div>
