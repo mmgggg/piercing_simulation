@@ -13,6 +13,16 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <%#ログインの有無でリンクを切り替え%>
+    <% if logged_in? %>
+    <%= render 'shared/header' %>
+    <% else %>
+    <%= render 'shared/before_login_header' %>
+    <% end %>
+
+    <%# フラッシュメッセージレンダリング%>
+    <%= render 'shared/flash_message' %>
+    
   </head>
 
   <body>
