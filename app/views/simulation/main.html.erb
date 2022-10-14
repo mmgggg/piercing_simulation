@@ -32,10 +32,10 @@
   <% else %>
     <p>”データがありません"</p>
   <% end %>
+  <button id="clean-btn" class="btn vtn-primary" onClick="removeMoveable()">clean</button>
 </div>
 <div class="download-button">
-   <%# <a href="#" download="piercing_simulation.jpg" button class="btn btn-primary" style="margin-left: 400px;"> ダウンロード</a> %>
-   <input id="download-btn" type="button" value="download image">
+   <input id="download-btn" type="button" value="Download" class="btn btn-primary" style="margin-left: 400px;">
 </div>
 <%= javascript_pack_tag 'simulation/main' %>
   

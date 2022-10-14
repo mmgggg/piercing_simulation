@@ -24,7 +24,7 @@ document.addEventListener('turbolinks:load', () => {
     addImage[0].appendChild(cloneElement);
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
-    //新しくonclick属性を付与
+    //新しくonmouseover,onclick属性を付与
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     // コピーした画像のidを書き換える
     var head = "copy-image";
@@ -58,6 +58,12 @@ document.addEventListener('turbolinks:load', () => {
       target.style.transform = transform
     });
   };
+
+  //Moveableの移動枠を消去
+  window.removeMoveable = function(){
+    const a = document.querySelector(".rCS1rb3a7w");
+    a.style.display = "none";
+  };
   
   //画像の保存  
   var btn = document.getElementById("download-btn");
@@ -65,7 +71,7 @@ document.addEventListener('turbolinks:load', () => {
     html2canvas(document.querySelector(".indicator")).then(canvas => { 
       let downloadEle = document.createElement("a");
       downloadEle.href = canvas.toDataURL("image/png");
-      downloadEle.download = "canvas.png";
+      downloadEle.download = "piercing_simulation.png";
       downloadEle.click();
     });
   });

@@ -8,16 +8,16 @@
 // }
 
 
-// .moveable-control {
-//   display: none;
-//   position: absolute;  
-//   width: 14px;
-//   height: 14px;
-//   border-radius: 50%;
-//   border: 2px solid #fff;
-//   box-sizing: border-box;
-//   background: red!important;
-//   margin-top: -7px;
-//   margin-left: -7px;
-//   z-index: 10;
-// }
+.moveable-control {
+  display: block;
+  position: absolute;  
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  background: gray!important;
+  margin-top: -7px;
+  margin-left: -7px;
+  z-index: 10;
+}
