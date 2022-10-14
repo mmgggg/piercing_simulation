@@ -15,9 +15,9 @@
     
     <%#ログインの有無でリンクを切り替え%>
     <% if logged_in? %>
-    <%= render 'shared/header' %>
+      <%= render 'shared/header' %>
     <% else %>
-    <%= render 'shared/before_login_header' %>
+      <%= render 'shared/before_login_header' %>
     <% end %>
 
     <%# フラッシュメッセージレンダリング%>
@@ -27,7 +27,6 @@
 
   <body>
     <%= yield %>
-    
   </body>
 
   <footer>
