@@ -61,8 +61,10 @@ document.addEventListener('turbolinks:load', () => {
 
   //Moveableの移動枠を消去
   window.removeMoveable = function(){
-    const a = document.querySelector(".rCS1rb3a7w");
-    a.style.display = "none";
+    const moveableClass = document.querySelectorAll(".rCS1rb3a7w");
+    for (var i=0; i<moveableClass.length; i++ ){
+      moveableClass[i].style.display = "none";
+    }
   };
   
   //画像の保存  
