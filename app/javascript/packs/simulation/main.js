@@ -1,109 +1,81 @@
 document.addEventListener('turbolinks:load', () => {
-  (function(){
-    //要素の取得
-    var elements = document.getElementsByClassName("drag-and-drop");
-
-    //要素内のクリックされた位置を取得するグローバル（のような）変数
-    var x;
-    var y;
+  //canvasに耳画像を描写する
+  window.onload = ()=>{
+    // canvas準備
+    const board = document.querySelector("#ear-image");
+    const ctx = board.getContext("2d");
   
-    //マウスが要素内で押されたとき、又はタッチされた際の関数
-    for(var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener("mousedown", mdown, false);
-      elements[i].addEventListener("touchstart", mdown, false);
-    }
-  
-    //マウスが押された際の関数
-    function mdown(e) {
-  
-      //クラス名に .drag を追加
-      this.classList.add("drag");
-
-      //タッチデイベントとマウスのイベントの差異を吸収
-      if(e.type === "mousedown") {
-          var event = e;
-      } else {
-          var event = e.changedTouches[0];
-      }
-
-      //要素内の相対座標を取得
-      x = event.pageX - this.offsetLeft;
-      y = event.pageY - this.offsetTop;
-
-      //ムーブイベントにコールバック
-      document.body.addEventListener("mousemove", move, false);
-      document.body.addEventListener("touchmove", move, false);
-
-    }
-  
-    //マウスカーソルが動いた際の関数
-    function move(e) {
-  
-      //ドラッグしている要素を取得
-      var drag = document.getElementsByClassName("drag")[0];
-
-      //同様にマウスとタッチの差異を吸収
-      if(e.type === "mousemove") {
-        var event = e;
-      } else {
-        var event = e.changedTouches[0];
-      }
-
-      //フリックしたときに画面を動かさないようにデフォルト動作を抑制
-      e.preventDefault();
-
-      //マウスが動いた場所に要素を動かす
-      drag.style.top = event.pageY - y + "px";
-      drag.style.left = event.pageX - x + "px";
-
-      //マウスボタンが離されたとき、またはカーソルが外れたとき発火
-      drag.addEventListener("mouseup", mup, false);
-      document.body.addEventListener("mouseleave", mup, false);
-      drag.addEventListener("touchend", mup, false);
-      document.body.addEventListener("touchleave", mup, false);
-
-    }
-  
-    //マウスボタンが上がった際の関数
-    function mup(e) {
-      var drag = document.getElementsByClassName("drag")[0];
-
-      //ムーブベントハンドラの消去
-      document.body.removeEventListener("mousemove", move, false);
-      drag.removeEventListener("mouseup", mup, false);
-      document.body.removeEventListener("touchmove", move, false);
-      drag.removeEventListener("touchend", mup, false);
-
-      //クラス名 .drag も消す
-      drag.classList.remove("drag");
-    }
-  })()
+    // 画像読み込み
+    const earImage = new Image();
+    earImage.src = "/ear_image_1920.jpg";  
+    earImage.onload = () => {
+      ctx.drawImage(earImage, 0, 0, 350, 450);
+    };
+  };
 
   //複製コード
-  var copyButton = document.getElementById("button");
-  copyButton.addEventListener('click', function() {
+  window.copy_image = function (clicked_id){
     //コピーする対象をelementに代入
-    var element = document.getElementById("image");
+    var element = document.getElementById(clicked_id);
     // コピー元のノードを取得
     var cloneElement = element.cloneNode(true);
-    //複製したやつにlassを付け足す
-    cloneElement.classList.add("drag-and-drop");
     // class add-drag-and-dropに追加
     addImage = document.getElementsByClassName("add-drag-and-drop");
     addImage[0].appendChild(cloneElement);
+    //コピーした画像からonclick属性を削除
+    cloneElement.removeAttribute("onclick");
+    //新しくonmouseover,onclick属性を付与
+    cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
+    // コピーした画像のidを書き換える
+    var head = "copy-image";
+    var length = document.querySelector('.add-drag-and-drop').childElementCount;
+    for(var i=1; i <= length; i++){
+      cloneElement.id = head + i;
+    } 
+
+  };  
+  
+  //moveable実装コード
+  window.useMoveable = function (clicked_id){
+    const move = new Moveable(document.body, {
+      target: document.querySelector(`#${clicked_id}`),
+      draggable: true,
+      resizable: true,
+      keepRatio: true,
+      rotatable: true
+    });
+
+    move.on("drag", ({ target, transform }) => {
+      target.style.transform = transform;
+    });
+    
+    move.on("resize", ({ target, width, height }) => {
+      target.style.width = width + "px";
+      target.style.height = height + "px";
+    });
+    
+    move.on("rotate", ({ target, transform }) => {
+      target.style.transform = transform
+    });
+  };
+
+  //Moveableの移動枠を消去
+  window.removeMoveable = function(){
+    const moveableClass = document.querySelectorAll(".rCS1rb3a7w");
+    for (var i=0; i<moveableClass.length; i++ ){
+      moveableClass[i].style.display = "none";
+    }
+  };
+  
+  //画像の保存  
+  var btn = document.getElementById("download-btn");
+  btn.addEventListener("click",() => {
+    html2canvas(document.querySelector(".indicator")).then(canvas => { 
+      let downloadEle = document.createElement("a");
+      downloadEle.href = canvas.toDataURL("image/png");
+      downloadEle.download = "piercing_simulation.png";
+      downloadEle.click();
+    });
   });
 
 });
-
-
-
-// //成功複製コード
-// var copyButton = document.getElementById("button");
-// copyButton.addEventListener('click', function() {
-//   var element = document.getElementById("pierce");
-//   // ノードを取得
-//   var cloneElement = element.cloneNode(true);
-//   // class drag-and-dropに追加
-//   addImage = document.getElementsByClassName("drag-and-drop")
-//   addImage[0].appendChild(cloneElement);
-// });
