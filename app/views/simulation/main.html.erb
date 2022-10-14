@@ -1,37 +1,39 @@
-<h1>シミュレーションページ</h1>
-<div class="ear-image">
-  <%= image_tag "ear_image_1920.jpg", id: "ear-image" %>
-  <div class="add-drag-and-drop"></div>
-</div>
+ <%# <script type="module" src="main.js "></script> %>
+ <script src="//daybrush.com/moveable/release/latest/dist/moveable.min.js"></script>
+ <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
-<%# <div class="pierce-images">
-  <table>
-    <tr>
-      
-    </tr>
-    <tr>
-      <td><button type="button" id="button" >複製</button></td>
-      <td><button type="button" id="button" >複製</button></td>
-    </tr>
-  </table>
-</div> %>
-<div class="pierce-images">
-  <table>
-    <tr>
-      <td>
-        <% if @pierce_image.present? %>
-          <% @pierce_image.each do |pierce_image| %>
-            <%= image_tag pierce_image.pierce_image.url, width: "50", height: "50" %>
-            <p><%= pierce_image.pierce_image_name %>
-          <% end %>
-        <% else %>
-          <p>”データがありません"</p>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td><button class="btn btn-primary" id="button" >複製</button></td>
-    </tr>
-  </table>
+<div class="page_title" style="font-size: 40px; margin-bottom: 20px;">
+  <h1>Simulation</h1>
 </div>
+<div class="flex flex-col w-full lg:flex-row" style="margin-left: 300px; padding-bottom: 10px;  ">
+ <%# 耳画像 %>
+  <div class="indicator" style="margin-right: 50px;">
+     <canvas id="ear-image" width="350" height="450"></canvas>
+    <span class="indicator-item indicator-center indicator-middle"> 
+      <div class="add-drag-and-drop" ></div>
+    </span> 
+  </div>
 
+  <%# ピアス画像データ%>
+  <% if @pierce_image.present? %>
+    <% @pierce_image.each_with_index do |pierce_image, n| %>
+      <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
+        <figure id= "<%= "image-#{n + 1}"%>" onClick="copy_image(this.id)" style="width: 20px; height:20px;">
+          <%= image_tag pierce_image.pierce_image.url %>
+        </figure>
+        <div class="card-body items-center text-center">
+          <p><%= pierce_image.pierce_image_name %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>”データがありません"</p>
+  <% end %>
+  <%# Cleanボタン%>
+  <button id="clean-btn" class="btn vtn-primary" onClick="removeMoveable()">clean</button>
+</div>
+<div class="download-button">
+   <input id="download-btn" type="button" value="Download" class="btn btn-primary" style="margin-left: 400px;">
+</div>
+<%= javascript_pack_tag 'simulation/main' %>
+  

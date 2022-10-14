@@ -3,21 +3,21 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.drag-and-drop {
-  cursor: move;
-  position: absolute;
-  z-index: 1000;
-}
+// .drag-and-drop {
+//   cursor: move;
+// }
 
-.drag {
-  z-index: 1001;
-}
 
-#ear-image {
+.moveable-control {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 350px;
-  height: 400px;
+  position: absolute;  
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  background: gray!important;
+  margin-top: -7px;
+  margin-left: -7px;
+  z-index: 10;
 }
-

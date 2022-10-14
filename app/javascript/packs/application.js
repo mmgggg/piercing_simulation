@@ -16,8 +16,8 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-//自作jsファイル読み込み用
-import "./simulation/main"
+// //自作jsファイル読み込み用
+// import "./simulation/main"
 
 //tailwind設定読み込み用
 import '../../assets/stylesheets/application.css'
