@@ -9,7 +9,7 @@
         <div class="piece-image-card" style="margin-right: 20px;">
           <%= image_tag pierce_image.pierce_image.url, width: "50", height: "50" %>
           <p><%= pierce_image.pierce_image_name %></p>
-          <%= button_to "削除", admin_pierce_image_path(pierce_image.id), method: :delete, data: {confirm: '削除しますか？'}  %>
+          <%= button_to "削除", admin_pierce_image_path(pierce_image.id), method: :delete %>
         </div>
       <% end %>
     <% else %>

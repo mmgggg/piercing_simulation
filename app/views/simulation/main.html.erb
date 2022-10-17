@@ -15,13 +15,11 @@
   <%# ピアス画像データ%>
   <% if @pierce_image.present? %>
     <% @pierce_image.each_with_index do |pierce_image, n| %>
-      <div class="card-compact" style="width: 30px; height: 30px; margin-right: 50px;">
-        <figure id= "<%= "image-#{n + 1}"%>" onClick="copy_image(this.id)" style="width: 20px; height:20px;">
+      <div class="pierce-image" style="margin-right: 20px;">
+        <figure id= "<%= "image-#{n + 1}"%>" onClick="copy_image(this.id)" style="width: 20px; height:20px; text-align: center;">
           <%= image_tag pierce_image.pierce_image.url %>
         </figure>
-        <div class="card-body items-center text-center">
-          <p><%= pierce_image.pierce_image_name %>
-        </div>
+        <%= pierce_image.pierce_image_name %>
       </div>
     <% end %>
   <% else %>
