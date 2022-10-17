@@ -19,6 +19,8 @@ document.addEventListener('turbolinks:load', () => {
     var element = document.getElementById(clicked_id);
     // コピー元のノードを取得
     var cloneElement = element.cloneNode(true);
+    //複製したやつにlassを付け足す
+    cloneElement.classList.add("drag-and-drop");
     // class add-drag-and-dropに追加
     addImage = document.getElementsByClassName("add-drag-and-drop");
     addImage[0].appendChild(cloneElement);
@@ -26,6 +28,8 @@ document.addEventListener('turbolinks:load', () => {
     cloneElement.removeAttribute("onclick");
     //新しくonmouseover,onclick属性を付与
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
+    cloneElement.setAttribute('ondblclick', 'removeImage(this.id)')
+    //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
     // コピーした画像のidを書き換える
     var head = "copy-image";
     var length = document.querySelector('.add-drag-and-drop').childElementCount;
@@ -34,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
     } 
 
   };  
-  
+
   //moveable実装コード
   window.useMoveable = function (clicked_id){
     const move = new Moveable(document.body, {
@@ -77,5 +81,15 @@ document.addEventListener('turbolinks:load', () => {
       downloadEle.click();
     });
   });
+
+  //画像の消去
+  window.removeImage = function(dblclicked_id){
+    var removeTarget = document.querySelector(`#${dblclicked_id}`);
+    removeTarget.parentNode.removeChild(removeTarget);
+    const moveableClass = document.querySelectorAll(".rCS1rb3a7w");
+    for (var i=0; i<moveableClass.length; i++ ){
+      moveableClass[i].style.display = "none";
+    }
+  };
 
 });
