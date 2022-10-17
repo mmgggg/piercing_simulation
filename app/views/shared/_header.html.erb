@@ -4,8 +4,12 @@
   </div>
   <div class="menu">
     <ul>
-      <li style="display: inline; margin-right: 10px;">Mypage</li>
-      <li style="display: inline;">Logout</li>
+      <li style="display: inline; margin-right: 10px;">
+        <%= link_to "Mypage", profile_path(current_user.id) %>
+      </li>
+      <li style="display: inline;">
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </li>
     </ul>
   </div>
 </div>

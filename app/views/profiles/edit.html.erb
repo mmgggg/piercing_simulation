@@ -1,0 +1,12 @@
+<h1>個人情報編集</h1>
+<%= form_with model: @user, url: profile_path(id: current_user.id), local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <%= f.submit '更新', class: 'btn btn-primary' %>
+<% end %>
