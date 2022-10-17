@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  #ユーザーページ
+  resources :profiles, only: %i[show edit update]
+
   #管理者ページ
   namespace :admin do
     root "dashboards#index"
