@@ -65,7 +65,7 @@ document.addEventListener('turbolinks:load', () => {
 
   //Moveableの移動枠を消去
   window.removeMoveable = function(){
-    const moveableClass = document.querySelectorAll(".rCS1rb3a7w");
+    const moveableClass = document.querySelectorAll(".rCSwd26qe");
     for (var i=0; i<moveableClass.length; i++ ){
       moveableClass[i].style.display = "none";
     }
@@ -86,7 +86,7 @@ document.addEventListener('turbolinks:load', () => {
   window.removeImage = function(dblclicked_id){
     var removeTarget = document.querySelector(`#${dblclicked_id}`);
     removeTarget.parentNode.removeChild(removeTarget);
-    const moveableClass = document.querySelectorAll(".rCS1rb3a7w");
+    const moveableClass = document.querySelectorAll(".rCSwd26qe");
     for (var i=0; i<moveableClass.length; i++ ){
       moveableClass[i].style.display = "none";
     }
