@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   #ユーザー登録
   resources :users, only: %i[new create]
 
@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   #ユーザーページ
   resources :profiles, only: %i[show edit update]
+
+  #パスワードリセット
+  resources :password_resets, only: %i[new create edit update]
 
   #管理者ページ
   namespace :admin do

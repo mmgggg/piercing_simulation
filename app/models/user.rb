@@ -8,4 +8,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :name, length: {maximum: 255}, uniqueness: true, presence: true
 
+  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
+
 end
