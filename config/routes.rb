@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   #コーディネート画像機能
   resources :coordinate_images, only: %i[index show new create destroy]
+  get 'my_coordinate_images', to: 'coordinate_images#my_coordinate_image'
 
   #管理者ページ
   namespace :admin do

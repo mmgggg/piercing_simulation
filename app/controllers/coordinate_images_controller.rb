@@ -7,9 +7,10 @@ class CoordinateImagesController < ApplicationController
   def show
   end
 
-  # def my_coordinate_image
-  #   @user = User.find(params[:id])
-  #   @my_coordinate_image = @user.coordinate_image
+  def my_coordinate_image
+    @user = User.find(current_user.id)
+    @my_coordinate_images = @user.coordinate_images
+  end
 
   def new
     @coordinate_image = CoordinateImage.new
