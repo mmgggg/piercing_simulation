@@ -1,0 +1,9 @@
+<h1> コーディネート画像アップロード</h1>
+
+<%= form_with model: @coordinate_image, html: { method: :post, multipart: true },local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
