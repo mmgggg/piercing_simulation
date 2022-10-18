@@ -1,0 +1,27 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="coordinate_image-id-<%= coordinate_image.id %>">
+    <div class="card">
+        <%= image_tag coordinate_image.image_url, class: 'card-img-top', size: '300x200' %>
+      <div class="card-body">
+        <%# <div class='mr10 float-right'>
+          <% if current_user.own?(board) %>
+            <%# <%= link_to edit_board_path(board.id), id: "button-edit-#{board.id}" do %>
+              <%# <%= icon 'fa', 'pen' %>
+            <%# <% end %>
+            <%# <%= link_to board_path(board.id), id: "button-delete-#{board.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
+              <%# <%= icon 'fas', 'trash' %>
+            <%# <% end %>
+          <%# <% else %>
+            <%# <%= render 'bookmark_area', board: board%>
+          <%# <% end %>
+        <%# </div> %>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <i class="far fa-user"></i>
+            <%= coordinate_image.user.name%>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

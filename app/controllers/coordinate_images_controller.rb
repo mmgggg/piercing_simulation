@@ -1,10 +1,15 @@
 class CoordinateImagesController < ApplicationController
 
+  def index
+    @coordinate_images = CoordinateImage.all
+  end
+
   def show
   end
 
-  def index
-  end
+  # def my_coordinate_image
+  #   @user = User.find(params[:id])
+  #   @my_coordinate_image = @user.coordinate_image
 
   def new
     @coordinate_image = CoordinateImage.new
@@ -14,7 +19,7 @@ class CoordinateImagesController < ApplicationController
     @coordinate_image = CoordinateImage.new(coordinate_image_params)
     if @coordinate_image.save
       flash[:success] = "投稿しました"
-      redirect_to login_path
+      redirect_to profile_path(current_user.id)
     else
       flash.now[:danger] = "投稿できませんでした"
       render :new
@@ -27,6 +32,6 @@ class CoordinateImagesController < ApplicationController
   private
 
   def coordinate_image_params
-    params.require(:coordinate_image).permit(:image)
+    params.require(:coordinate_image).permit(:image).merge(user_id: current_user.id)
   end
 end
