@@ -28,6 +28,10 @@ class CoordinateImagesController < ApplicationController
   end
 
   def destroy
+    @coordinate_image = current_user.coordinate_images.find(params[:id])
+    @coordinate_image.destroy!
+    flash[:success] = "削除しました"
+    redirect_to my_coordinate_images_path
   end
 
   private
