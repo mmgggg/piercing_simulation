@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   #ユーザー登録
   resources :users, only: %i[new create]
 
@@ -13,6 +12,10 @@ Rails.application.routes.draw do
 
   #パスワードリセット
   resources :password_resets, only: %i[new create edit update]
+
+  #コーディネート画像機能
+  resources :coordinate_images, only: %i[index show new create destroy]
+  get 'my_coordinate_images', to: 'coordinate_images#my_coordinate_image'
 
   #管理者ページ
   namespace :admin do
