@@ -1,16 +1,24 @@
-<div class="navbar bg-base-100" style="background: #000022; color: white; width: 100%;">
-  <div class="flex-1">
-    <a class="normal-case text-xl">PiercingSimulation</a>
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Piercing Simulation", root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse show" id="navbarBasic">
+      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+        <li class="nav-item">
+          <%= link_to "Mypage", profile_path(current_user.id), class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Simulation", simulation_page_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Coordinate Image", coordinate_images_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "logout", logout_path, method: :delete, class:"nav-link" %>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="menu">
-    <ul>
-      <li style="display: inline; margin-right: 10px;">
-        <%= link_to "Mypage", profile_path(current_user.id) %>
-      </li>
-      <li style="display: inline;">
-        <%= link_to "Logout", logout_path, method: :delete %>
-      </li>
-    </ul>
-  </div>
-</div>
-
+</nav>
