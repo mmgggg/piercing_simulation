@@ -3,14 +3,17 @@
       <%= image_tag coordinate_image.image_url, class: 'card-img-top', width: 200, height: 300%>
     <div class="card-body">
       <div class=''>
-        <% if current_user.own?(coordinate_image) %>
-          <%= link_to coordinate_image_path(coordinate_image.id), id: "button-delete-#{coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
-            <%= image_tag '/icon/trashbox.png'%>
+        <%if logged_in?%>
+          <% if current_user.own?(coordinate_image) %>
+            <%= link_to coordinate_image_path(coordinate_image.id), id: "button-delete-#{coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
+              <%= image_tag '/icon/trashbox.png'%>
+            <% end %>
+          <% else %>
+            <%= image_tag '/icon/unbookmark.png'%>
+            <%# <%= render 'bookmark_area', board: board%> 
           <% end %>
         <% else %>
-          <%= image_tag '/icon/unbookmark.png'%>
-          <%# <%= render 'bookmark_area', board: board%> 
-        <% end %>
+        <%end%>
       </div>
     </div>
   </div>
