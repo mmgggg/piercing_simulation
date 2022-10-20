@@ -9,7 +9,7 @@ document.addEventListener('turbolinks:load', () => {
     const earImage = new Image();
     earImage.src = "/ear_image_1920.jpg";  
     earImage.onload = () => {
-      ctx.drawImage(earImage, 0, 0, 350, 450);
+      ctx.drawImage(earImage, 0, 0, 300, 360);
     };
   };
 
@@ -74,7 +74,7 @@ document.addEventListener('turbolinks:load', () => {
   //画像の保存  
   var btn = document.getElementById("download-btn");
   btn.addEventListener("click",() => {
-    html2canvas(document.querySelector(".indicator")).then(canvas => { 
+    html2canvas(document.querySelector(".ear-image")).then(canvas => { 
       let downloadEle = document.createElement("a");
       downloadEle.href = canvas.toDataURL("image/png");
       downloadEle.download = "piercing_simulation.png";
