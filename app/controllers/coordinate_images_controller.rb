@@ -1,7 +1,7 @@
 class CoordinateImagesController < ApplicationController
 
   def index
-    @coordinate_images = CoordinateImage.all
+    @coordinate_images = CoordinateImage.all.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -9,7 +9,7 @@ class CoordinateImagesController < ApplicationController
 
   def my_coordinate_image
     @user = User.find(current_user.id)
-    @my_coordinate_images = @user.coordinate_images
+    @my_coordinate_images = @user.coordinate_images.order(created_at: :desc).page(params[:page])
   end
 
   def new
