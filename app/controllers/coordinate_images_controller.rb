@@ -1,4 +1,5 @@
 class CoordinateImagesController < ApplicationController
+  before_action :require_login, only: %i[my_coordinate_image create destroy]
 
   def index
     @coordinate_images = CoordinateImage.all.order(created_at: :desc).page(params[:page])
