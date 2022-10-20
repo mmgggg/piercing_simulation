@@ -20,7 +20,7 @@ class CoordinateImagesController < ApplicationController
     @coordinate_image = CoordinateImage.new(coordinate_image_params)
     if @coordinate_image.save
       flash[:success] = "投稿しました"
-      redirect_to profile_path(current_user.id)
+      redirect_to my_coordinate_images_path(current_user.id)
     else
       flash.now[:danger] = "投稿できませんでした"
       render :new
