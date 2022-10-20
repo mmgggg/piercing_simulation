@@ -1,12 +1,10 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div id="coordinate_image-id-<%= my_coordinate_image.id %>">
-    <div class="card">
-        <%= image_tag my_coordinate_image.image_url, class: 'card-img-top', size: '300x200' %>
-      <div class="card-body">
-          <%= link_to coordinate_image_path(my_coordinate_image.id), id: "button-delete-#{my_coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
-            <p class="btn btn-primary">削除</p>
-          <% end %>
-      </div>
+<div class="col-3">
+  <div class="card p-3 border bg-light" id="coordinate_image-id-<%= my_coordinate_image.id %>">
+      <%= image_tag my_coordinate_image.image_url, class: 'card-img-top', width: 200, height: 300 %>
+    <div class="card-body">
+      <%= link_to coordinate_image_path(my_coordinate_image.id), id: "button-delete-#{my_coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
+        <%= image_tag '/icon/trashbox.png'%>
+      <% end %>
     </div>
   </div>
 </div>

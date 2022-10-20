@@ -1,23 +1,18 @@
-<h1>Myコーディネート画像一覧</h1>
-<div class="container pt-3">
+<div class="container-fluid">
+  <h1>Myコーディネート画像一覧</h1>
   <%# <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <!-- 検索フォーム -->
       <%# <%= render 'search_form', url: boards_path, search: @search%> 
     <%# </div>
   </div> %>
-  <!-- 掲示板一覧 -->
-  <div class="row">
-    <div class="col-12">
-      <div class="row" style="width:300px; height:300px;">
-         <% if @my_coordinate_images.present? %>
-           <%= render partial: 'my_coordinate_image', collection: @my_coordinate_images %>
-         <% else %>
-           <p>コーディネート画像がありません</p>
-         <% end %>
-      </div>
-    </div>
+  <!-- コーディネート一覧 -->
+  <div class="row g-5">
+    <% if @my_coordinate_images.present? %>
+      <%= render partial: 'my_coordinate_image', collection: @my_coordinate_images %>
+    <% else %>
+      <p>コーディネート画像がありません</p>
+    <% end %>
   </div>
   <%# <%= paginate @boards %>
 </div>
-
