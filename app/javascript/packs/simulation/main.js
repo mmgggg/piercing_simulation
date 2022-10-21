@@ -26,7 +26,7 @@ document.addEventListener('turbolinks:load', () => {
     addImage[0].appendChild(cloneElement);
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
-    //新しくonmouseover,onclick属性を付与
+    //新しくonclick属性を付与
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     cloneElement.setAttribute('ondblclick', 'removeImage(this.id)')
     //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
