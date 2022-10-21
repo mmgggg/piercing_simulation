@@ -82,7 +82,7 @@ document.addEventListener('turbolinks:load', () => {
     });
   });
 
-  //画像の消去
+  //コピー画像の消去
   window.removeImage = function(dblclicked_id){
     var removeTarget = document.querySelector(`#${dblclicked_id}`);
     removeTarget.parentNode.removeChild(removeTarget);
