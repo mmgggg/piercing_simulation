@@ -20,4 +20,8 @@ ActiveStorage.start()
 // import "./simulation/main"
 
 //tailwind設定読み込み用
-import '../../assets/stylesheets/application.css'
+// import '../../assets/stylesheets/application.css'
+
+//bootstrap読み込み
+import "bootstrap";
+import "../stylesheets/application.scss";

@@ -9,7 +9,7 @@ document.addEventListener('turbolinks:load', () => {
     const earImage = new Image();
     earImage.src = "/ear_image_1920.jpg";  
     earImage.onload = () => {
-      ctx.drawImage(earImage, 0, 0, 350, 450);
+      ctx.drawImage(earImage, 0, 0, 300, 360);
     };
   };
 
@@ -26,7 +26,7 @@ document.addEventListener('turbolinks:load', () => {
     addImage[0].appendChild(cloneElement);
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
-    //新しくonmouseover,onclick属性を付与
+    //新しくonclick属性を付与
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     cloneElement.setAttribute('ondblclick', 'removeImage(this.id)')
     //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
@@ -74,7 +74,7 @@ document.addEventListener('turbolinks:load', () => {
   //画像の保存  
   var btn = document.getElementById("download-btn");
   btn.addEventListener("click",() => {
-    html2canvas(document.querySelector(".indicator")).then(canvas => { 
+    html2canvas(document.querySelector(".ear-image")).then(canvas => { 
       let downloadEle = document.createElement("a");
       downloadEle.href = canvas.toDataURL("image/png");
       downloadEle.download = "piercing_simulation.png";
@@ -82,7 +82,7 @@ document.addEventListener('turbolinks:load', () => {
     });
   });
 
-  //画像の消去
+  //コピー画像の消去
   window.removeImage = function(dblclicked_id){
     var removeTarget = document.querySelector(`#${dblclicked_id}`);
     removeTarget.parentNode.removeChild(removeTarget);
@@ -91,5 +91,31 @@ document.addEventListener('turbolinks:load', () => {
       moveableClass[i].style.display = "none";
     }
   };
+
+  //モーダル
+  const buttonOpen = document.getElementById('modalOpen');
+  const modal = document.getElementById('modal');
+  const buttonClose = document.getElementsByClassName('modalClose')[0];
+
+  // ボタンがクリックされた時
+  buttonOpen.addEventListener('click', modalOpen);
+  function modalOpen() {
+    modal.style.display = 'block';
+  }
+
+  // バツ印がクリックされた時
+  buttonClose.addEventListener('click', modalClose);
+  function modalClose() {
+    modal.style.display = 'none';
+  }
+
+  // モーダルコンテンツ以外がクリックされた時
+  addEventListener('click', outsideClose);
+  function outsideClose(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+
 
 });

@@ -62,3 +62,6 @@ gem 'sorcery'
 
 #日本語化機能
 gem 'rails-i18n'
+
+#ページネーション
+gem 'kaminari'

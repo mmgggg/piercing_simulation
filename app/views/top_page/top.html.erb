@@ -1,14 +1,21 @@
-<div class="container mx-auto">
-  <div class="menu-button" >
-    <div class="login btn btn-primary">
-      <%= link_to "Login", login_path %>
+<div class="container-fluid pt-5">
+  <div class="row">
+    <div class="image-fruid col-4 mx-auto">
+      <img src="/logo_video.gif">
     </div>
-    <div class="guest-user btn btn-primary">
-      <%= link_to "Guest User", simulation_page_path %>
+    <div class="menu-button form-inline pt-5 pb-5">
+      <div class="guest-user col-3 d-grid gap-2"></div>
+      <div class="login col-3">
+        <%= link_to "Login", login_path, class:"btn btn-secondary d-grid gap-2" %>
+      </div>
+      <div class="guest-user col-3 d-grid gap-2">
+        <%= link_to "Guest User", simulation_page_path, class: "guest-user btn btn-dark" %>
+      </div>
+    </div>
+    <div class="newuser col-12 text-center">
+      <%= link_to "ユーザー登録はこちら", new_user_path, class: 'link-secondary' %>
     </div>
   </div>
-  <div class="newuser">
-    <%= link_to "ユーザー登録はこちら", new_user_path, class: 'btn btn-default' %>
-  </div>
-
 </div>
+
+

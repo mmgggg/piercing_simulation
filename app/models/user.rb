@@ -11,4 +11,8 @@ class User < ApplicationRecord
 
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
+  #自分の投稿画像かどうか確かめる
+  def own?(object)
+    object.user_id == id
+  end
 end

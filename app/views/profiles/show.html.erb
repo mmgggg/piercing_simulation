@@ -1,9 +1,63 @@
-<h1>Mypage</h1>
-<p><%= current_user.name%><p>
-<%= link_to 'シミュレーションする', simulation_page_path %>
-<%= link_to 'コーディネート画像投稿', new_coordinate_image_path %>
-<%= link_to 'コーディネート一覧を見る', coordinate_images_path %>
-<%= link_to '自分のコーディネート一覧', my_coordinate_images_path%>
+<div class="container-fluid overflow-hidden text-center">
+  <div>
+  <h1>Welcome,<%= current_user.name%></h1>
+  </div>
 
-<%= link_to '編集', edit_profile_path(id: current_user.id)%>
-
+  <div class="row gx-5" >
+    <div class="col-6">
+      <div class="card">
+        <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
+          <%= image_tag '/icon/ear-icon.png'%>
+        </div>
+        <div class="card-body">
+          <div class="card-title" >
+            <%= link_to 'Simulation', simulation_page_path, class:"btn btn-secondary" %>
+          </div>
+          <p class="card-text">ピアスを自在に動かしてピアッシングのシミュレーションができます</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card center-block">
+        <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
+          <%= image_tag '/icon/post.png'%>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <%= link_to 'Posts', new_coordinate_image_path, class:"btn btn-secondary" %>
+          </div>
+          <p class="card-text">作成したイメージを投稿できます</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card center-block">
+        <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
+          <%= image_tag '/icon/face.png'%>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <%= link_to 'Coordinate Images', coordinate_images_path, class:"btn btn-secondary" %>
+          </div>
+          <p class="card-text">投稿されたイメージを見ることができます</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card center-block">
+        <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
+          <%= image_tag '/icon/myimage.png'%>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <%= link_to 'My Coordinates Images', my_coordinate_images_path, class:"btn btn-secondary" %>
+          </div>
+          <p class="card-text">自分が投稿したイメージを見ることができます</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= link_to 'name,emailの変更はこちらから', edit_profile_path(id: current_user.id), class:"link-secondary"%>
+  </div>
+</div>

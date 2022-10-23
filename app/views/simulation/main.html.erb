@@ -1,35 +1,64 @@
  <%# <script type="module" src="main.js "></script> %>
  <script src="//daybrush.com/moveable/release/latest/dist/moveable.min.js"></script>
  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+ <%= javascript_pack_tag 'simulation/main' %>
 
-<div class="page_title" style="font-size: 40px; margin-bottom: 20px;">
-  <h1>Simulation</h1>
-</div>
-<div class="flex flex-col w-full lg:flex-row" style="margin-left: 300px; padding-bottom: 10px;  ">
- <%# 耳画像 %>
-  <div class="indicator" style="margin-right: 50px; position: relative;">
-     <canvas id="ear-image" width="350" height="450"></canvas>
-      <div class="add-drag-and-drop" style="position: absolute; top : 220px; left : 200px;" ></div>
+<div class="container-fluild">
+  <div class="row">
+    <div class="col-2 pr-0 mr-0">
+      <h1 class="pr-0">Simulation</h1>
+    </div>
+    <%#モーダルページ%>
+    <div class="col-2 pl-0 ml-0">
+      <button id="modalOpen" class="btn btn-link link-secondary pt-3 pl-0 ml-0">
+        <%= image_tag '/icon/question.png'%>
+        How to use
+      </button>
+      <div class="modal" tabindex="-1" id="modal">
+        <%= render 'how_to_modal'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%# 耳画像 %>
+    <div class="col-6 align-self-end">
+      <div class="ear-image" style="margin-left: 40%; height: 360px; width: 300px;">
+        <canvas id="ear-image" width="300" height="360"></canvas>
+        <div class="add-drag-and-drop" >
+        </div>
+      </div>
+    </div>
+
+    <%# ピアス画像データ%>
+    <div class="pierce-images col-4">
+      <div class="row gx-5">
+        <% if @pierce_image.present? %>
+          <% @pierce_image.each_with_index do |pierce_image, n| %>
+            <div class="card col-3 text-center">
+              <figure id= "<%= "image-#{n + 1}"%>" onClick="copy_image(this.id)" style="padding: 0; margin: 0;">
+                <%= image_tag pierce_image.pierce_image.url, class:"card-img-top", alt:"pierce_image" %>
+              </figure>
+              <div class="card-body" style="margin: 0;">
+                <p class="card-title"><%= pierce_image.pierce_image_name%></p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>”データがありません"</p>
+      <% end %>
+      </div>
+    </div>
+    <div class="button-group row pt-3">
+      <%# Downloadボタン%>
+      <div class="download-button col-4 text-right">
+        <input id="download-btn" type="button" value="Download" class="btn btn-secondary">
+      </div>
+      <%# Cleanボタン%>
+      <div class="clean-button col-4 align-self-end">
+        <button id="clean-btn" class="btn btn-dark" onClick="removeMoveable()">clean</button>
+      </div>
+    </div>
   </div>
 
-  <%# ピアス画像データ%>
-  <% if @pierce_image.present? %>
-    <% @pierce_image.each_with_index do |pierce_image, n| %>
-      <div class="pierce-image" style="margin-right: 20px;">
-        <figure id= "<%= "image-#{n + 1}"%>" onClick="copy_image(this.id)" style="width: 20px; height:20px; text-align: center;">
-          <%= image_tag pierce_image.pierce_image.url %>
-        </figure>
-        <%= pierce_image.pierce_image_name %>
-      </div>
-    <% end %>
-  <% else %>
-    <p>”データがありません"</p>
-  <% end %>
-  <%# Cleanボタン%>
-  <button id="clean-btn" class="btn vtn-primary" onClick="removeMoveable()">clean</button>
 </div>
-<div class="download-button">
-   <input id="download-btn" type="button" value="Download" class="btn btn-primary" style="margin-left: 400px;">
-</div>
-<%= javascript_pack_tag 'simulation/main' %>
   

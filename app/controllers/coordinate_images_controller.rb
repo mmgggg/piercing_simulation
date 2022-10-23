@@ -1,7 +1,8 @@
 class CoordinateImagesController < ApplicationController
+  before_action :require_login, only: %i[my_coordinate_image create destroy]
 
   def index
-    @coordinate_images = CoordinateImage.all
+    @coordinate_images = CoordinateImage.all.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -9,7 +10,7 @@ class CoordinateImagesController < ApplicationController
 
   def my_coordinate_image
     @user = User.find(current_user.id)
-    @my_coordinate_images = @user.coordinate_images
+    @my_coordinate_images = @user.coordinate_images.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -20,7 +21,7 @@ class CoordinateImagesController < ApplicationController
     @coordinate_image = CoordinateImage.new(coordinate_image_params)
     if @coordinate_image.save
       flash[:success] = "投稿しました"
-      redirect_to profile_path(current_user.id)
+      redirect_to my_coordinate_images_path(current_user.id)
     else
       flash.now[:danger] = "投稿できませんでした"
       render :new

@@ -4,11 +4,14 @@ ja:
    email: 'メールアドレス'
  users:
    new:    
-     email: 'メールアドレス'
-     password: 'パスワード'
-     password_confirmation: 'パスワード確認'
-     name: '名前'
+     email: 'email'
+     password: 'password'
+     password_confirmation: 'password'
+     name: 'name'
  user_sessions:
    new:
-     email: 'メールアドレス'
-     password: 'パスワード'
+     email: 'email'
+     password: 'password'
+ pagination:
+   previous: '<<'
+   next: '>>'

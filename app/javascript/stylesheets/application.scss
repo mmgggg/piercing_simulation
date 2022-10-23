@@ -1,0 +1,20 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+
+body {
+  font-family: 'TsukuARdGothic-Regular',sans-serif;
+  background-color: #eaeaea;
+}
+
+.pagination {
+  justify-content: center;
+}
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+.pagination>.active>a {     
+  background-color: #696969;     /*背景の色を変える*/
+}
+
