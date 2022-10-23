@@ -53,3 +53,6 @@ production:
   database: piercing_simulation_production
   username: piercing_simulation
   password: <%= ENV['PIERCING_SIMULATION_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
