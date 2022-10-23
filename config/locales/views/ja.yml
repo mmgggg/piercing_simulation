@@ -12,3 +12,6 @@ ja:
    new:
      email: 'email'
      password: 'password'
+ pagination:
+   previous: '<<'
+   next: '>>'
