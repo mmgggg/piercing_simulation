@@ -1,5 +1,5 @@
-//@import 'bootstrap/scss/bootstrap.scss';
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap.scss';
+
 
 body {
   font-family: 'TsukuARdGothic-Regular',sans-serif;
@@ -17,3 +17,4 @@ body {
 .pagination>.active>a {     
   background-color: #696969;     /*背景の色を変える*/
 }
+
