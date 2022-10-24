@@ -7,12 +7,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
-    <%# CSS読み込み設定%>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %> 
     
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     
+    <%# CSS読み込み設定%>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
     <%#ログインの有無でリンクを切り替え%>
     <% if logged_in? %>
