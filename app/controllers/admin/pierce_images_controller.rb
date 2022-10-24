@@ -1,7 +1,7 @@
 class Admin::PierceImagesController < Admin::BaseController
 
   def index
-    @pierce_images = PierceImage.all
+    @pierce_images = PierceImage.where.not(pierce_image: nil)
   end
 
   def new
