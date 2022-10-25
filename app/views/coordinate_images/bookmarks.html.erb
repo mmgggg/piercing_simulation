@@ -1,0 +1,10 @@
+<div class="container-fruid">
+  <h1> お気に入り</h1>
+  <div class="row g-5">
+   <% if @bookmark_coordinate_images.present? %>
+     <%= render @bookmark_coordinate_images %>
+   <% else %>
+    <p>お気に入りはありません</p>
+   <% end %>
+  </div>
+</div>
