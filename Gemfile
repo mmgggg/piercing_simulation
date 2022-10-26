@@ -70,3 +70,7 @@ gem 'rails-i18n'
 
 #ページネーション
 gem 'kaminari'
+
+#S3
+gem 'dotenv-rails'
+gem 'fog-aws'
