@@ -9,8 +9,7 @@
               <%= image_tag '/icon/trashbox.png'%>
             <% end %>
           <% else %>
-            <%= image_tag '/icon/unbookmark.png'%>
-            <%# <%= render 'bookmark_area', board: board%> 
+            <%= render 'bookmark_area', coordinate_image: coordinate_image %>
           <% end %>
         <% else %>
         <%end%>
