@@ -17,3 +17,4 @@ CarrierWave.configure do |config|
       path_style: true
     }
 end
+
