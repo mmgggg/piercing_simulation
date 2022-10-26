@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookmarks/create'
-  get 'bookmarks/destroy'
   #ユーザー登録
   resources :users, only: %i[new create]
 
@@ -16,15 +14,8 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   #コーディネート画像機能
-  resources :coordinate_images, only: %i[index show new create destroy] do
-    collection do
-      get 'bookmarks'
-    end
-  end
+  resources :coordinate_images, only: %i[index show new create destroy]
   get 'my_coordinate_images', to: 'coordinate_images#my_coordinate_image'
-
-  #bookmark機能
-  resources :bookmarks, only: %i[create destroy]
 
   #管理者ページ
   namespace :admin do

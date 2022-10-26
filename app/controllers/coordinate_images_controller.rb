@@ -35,11 +35,6 @@ class CoordinateImagesController < ApplicationController
     redirect_to my_coordinate_images_path
   end
 
-  #bookmarkしているImage一覧
-  def bookmarks
-    @bookmark_coordinate_images = current_user.bookmark_coordinate_images.includes(:user).order(created_at: :desc)
-  end
-
   private
 
   def coordinate_image_params
