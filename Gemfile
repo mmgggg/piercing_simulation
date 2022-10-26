@@ -70,9 +70,3 @@ gem 'rails-i18n'
 
 #ページネーション
 gem 'kaminari'
-
-#S3へのアップロード
-gem 'fog-aws'
-
-#環境変数設定
-gem 'dotenv-rails'
