@@ -1,0 +1,5 @@
+<div class='mr10 float-right'>
+  <%= link_to bookmark_path(current_user.bookmarks.find_by(coordinate_image_id: coordinate_image.id)), method: :delete , id: "js-bookmark-button-for-coordinateimage-#{coordinate_image.id}" do %>
+    <%= image_tag '/icon/bookmark.png'%>
+  <% end %>
+</div>
