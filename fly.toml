@@ -1,4 +1,4 @@
-# fly.toml file generated for piercingsimulation on 2022-10-26T16:30:08+09:00
+# fly.toml file generated for piercingsimulation on 2022-10-26T21:53:54+09:00
 
 app = "piercingsimulation"
 kill_signal = "SIGINT"
