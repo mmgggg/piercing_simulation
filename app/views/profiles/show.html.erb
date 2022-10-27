@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
           <div class="card-title" >
-            <%= link_to 'Simulation', simulation_page_path, class:"btn btn-secondary" %>
+            <%= link_to 'Simulation', simulation_page_path, data: {"turbolinks" => false}, class:"btn btn-secondary" %>
           </div>
           <p class="card-text">ピアッシングのシミュレーションができます</p>
         </div>
@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-     <div class="col-4">
+    <div class="col-4">
       <div class="card center-block">
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/heart.png'%>
@@ -68,8 +68,18 @@
         </div>
       </div>
     </div>
-  </div>
-  <div>
-    <%= link_to 'name,emailの変更はこちらから', edit_profile_path(id: current_user.id), class:"link-secondary"%>
+    <div class="col-4">
+      <div class="card center-block">
+        <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
+          <%= image_tag '/icon/pen.png'%>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <%= link_to 'Profile Edit', edit_profiles_path, class:"btn btn-secondary"%>
+          </div>
+          <p class="card-text">name,emailの変更ができます</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 ja:
  defaults: #defaultsは全てに共通するものにつける
-   login: 'ログイン'
-   email: 'メールアドレス'
+   login: 'Login'
+   email: 'email'
  users:
    new:    
      email: 'email'

@@ -4,8 +4,11 @@ ja:
       user: 'ユーザー'
     attributes:
       user:
-        email: 'メールアドレス'
-        password: 'パスワード'
-        password_confirmation: 'パスワード確認'
-        name: 'ユーザー名'
+        email: 'email'
+        password: 'password'
+        password_confirmation: 'password confirmation'
+        name: 'name'
+  pagination:
+   previous: '<<'
+   next: '>>'
   

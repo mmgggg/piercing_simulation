@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   #ユーザーページ
-  resources :profiles, only: %i[show edit update]
+  resource :profiles, only: %i[show edit update]
 
   #パスワードリセット
   resources :password_resets, only: %i[new create edit update]

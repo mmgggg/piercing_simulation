@@ -1,9 +1,9 @@
 <div class="container-fluid" style="margin-top: 30px">
   <div class="row">
     <div class="text-center">
-     <h1>個人情報編集</h1>
+     <h1>Profile Edit</h1>
       <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2" style="margin-top: 30px">
-        <%= form_with model: @user, url: profile_path(id: current_user.id), local: true do |f| %>
+        <%= form_with model: @user, url: profiles_path, local: true do |f| %>
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
