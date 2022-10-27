@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "更新しました"
-      redirect_to profile_path(current_user.id)
+      redirect_to profiles_path
     else
       flash.now[:danger] = "更新できませんでした"
       render :edit
@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
   end
 
   private
+  #editアクションを起こすためにset_userをセット
   def set_user
     @user = User.find(current_user.id)
   end
