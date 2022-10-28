@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-brand">
+      <%= link_to image_tag("/header_logo.png"), root_path %>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse show" id="navbarBasic">
+      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+        <li class="nav-item">
+          <%= link_to "Mypage", profiles_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Simulation", simulation_page_path, data: {"turbolinks" => false}, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Coordinate Image", coordinate_images_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "logout", logout_path, method: :delete, class:"nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

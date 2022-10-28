@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <%# <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム -->
+      <%# <%= render 'search_form', url: boards_path, search: @search%> 
+    <%# </div>
+  </div> %>
+  <!-- 掲示板一覧 -->
+  <h1>Images</h1>
+    <div class="row g-5">
+        <% if @coordinate_images.present? %>
+          <%= render partial: 'coordinate_image', collection: @coordinate_images %>
+        <% else %>
+          <p>コーディネート画像がありません</p>
+        <% end %>
+    </div>
+  <%= paginate @coordinate_images %>
+</div>

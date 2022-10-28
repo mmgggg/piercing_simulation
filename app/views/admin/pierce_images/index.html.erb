@@ -1,0 +1,23 @@
+<div>
+  <h2> ピアス画像一覧
+</div>
+
+<div class="container">
+  <div class="pierce-images" style="display: flex;">
+    <% if @pierce_images.present? %>
+      <% @pierce_images.each do |pierce_image| %>
+        <div class="piece-image-card" style="margin-right: 20px;">
+          <%= image_tag pierce_image.pierce_image.url, width: "50", height: "50" %>
+          <p><%= pierce_image.pierce_image_name %></p>
+          <%= button_to "削除", admin_pierce_image_path(pierce_image.id), method: :delete %>
+        </div>
+      <% end %>
+    <% else %>
+        <p>”データがありません"</p>
+    <% end %>
+  <div>
+</div>
+
+<div class="upload-button">
+  <button><%= link_to "ピアス画像アップロード", new_admin_pierce_image_path %></button>
+</div>

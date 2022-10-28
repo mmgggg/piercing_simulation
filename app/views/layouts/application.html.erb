@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PiercingSimulation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %> 
+    
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     
+    <%# CSS読み込み設定%>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <%#ログインの有無でリンクを切り替え%>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+
+    <%# フラッシュメッセージレンダリング%>
+    <%= render 'shared/flash_message' %>
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+
+  <footer>
+    <%= render 'shared/footer'%>
+  </footer>
+</html>
+

@@ -1,0 +1,5 @@
+<% if current_user.bookmark?(coordinate_image)  %>
+  <%= render 'unbookmark', coordinate_image: coordinate_image %>
+<% else  %>
+  <%= render 'bookmark', coordinate_image: coordinate_image %>
+<% end %>

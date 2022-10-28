@@ -1,0 +1,29 @@
+<div class="container-fruid ">
+  <div class="row">
+    <div class="text-center">
+      <h1> Sign In</h1>
+    </div>
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <%= form_with model: @user, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', type: 'text', placeholder: 'name' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control', type:'email', placeholder: 'example@example.com' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.text_field :password, class: 'form-control', type: 'password', placeholder: 'password' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.text_field :password_confirmation, class: 'form-control', type: 'password', placeholder: '確認のためもう一度ご入力ください' %>
+      </div>
+        <%= f.submit "sign in", class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

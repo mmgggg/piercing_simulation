@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        email: 'email'
+        password: 'password'
+        password_confirmation: 'password confirmation'
+        name: 'name'
+  pagination:
+   previous: '<<'
+   next: '>>'
+  

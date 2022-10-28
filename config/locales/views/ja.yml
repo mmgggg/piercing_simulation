@@ -1,0 +1,17 @@
+ja:
+ defaults: #defaultsは全てに共通するものにつける
+   login: 'Login'
+   email: 'email'
+ users:
+   new:    
+     email: 'email'
+     password: 'password'
+     password_confirmation: 'password'
+     name: 'name'
+ user_sessions:
+   new:
+     email: 'email'
+     password: 'password'
+ pagination:
+   previous: '<<'
+   next: '>>'

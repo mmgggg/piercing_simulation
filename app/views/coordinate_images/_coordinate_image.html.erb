@@ -1,0 +1,19 @@
+<div class="col-3">
+  <div class="card p-3 border bg-light" id="coordinate_image-id-<%= coordinate_image.id%>">
+      <%= image_tag coordinate_image.image_url, class: 'card-img-top', width: 200, height: 300%>
+    <div class="card-body">
+      <div class=''>
+        <%if logged_in?%>
+          <% if current_user.own?(coordinate_image) %>
+            <%= link_to coordinate_image_path(coordinate_image.id), id: "button-delete-#{coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
+              <%= image_tag '/icon/trashbox.png'%>
+            <% end %>
+          <% else %>
+            <%= render 'bookmark_area', coordinate_image: coordinate_image %>
+          <% end %>
+        <% else %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
