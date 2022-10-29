@@ -4,8 +4,8 @@ class PierceImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  #storage :file
-  storage :fog
+  storage :file
+  #storage :fog
 
   # if Rails.env.development? # 開発環境の場合
   #   storage :file
