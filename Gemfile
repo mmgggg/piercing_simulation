@@ -74,3 +74,6 @@ gem 'kaminari'
 #S3
 gem 'dotenv-rails'
 gem 'fog-aws'
+
+#タグ機能
+gem 'acts-as-taggable-on'
