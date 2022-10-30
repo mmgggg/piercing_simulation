@@ -1,15 +1,16 @@
 <div class="col-3">
   <div class="card p-3 border bg-light" id="coordinate_image-id-<%= coordinate_image.id%>">
       <%= image_tag coordinate_image.image_url, class: 'card-img-top', width: 200, height: 300%>
-    <div class="card-body">
+    <div class="card-body text-right">
       <div class=''>
-        <% if @tags.present? %>
-          <% @tags.each do |tag|%>
-            <p><%= tag %></p>
+        <div class="form-inline">
+          <% if coordinate_image.tags.present? %>
+            <% coordinate_image.tags.each do |tag|%>
+              <p class="mr-3 badge bg-secondary "><%= tag %></p>
+            <% end %>
+          <% else %>
           <% end %>
-        <% else %>
-          <p>タグはありません</p>
-        <% end %>
+        </div>
         <%if logged_in?%>
           <% if current_user.own?(coordinate_image) %>
             <%= link_to coordinate_image_path(coordinate_image.id), id: "button-delete-#{coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>

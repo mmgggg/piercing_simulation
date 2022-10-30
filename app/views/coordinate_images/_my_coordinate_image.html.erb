@@ -2,6 +2,14 @@
   <div class="card p-3 border bg-light">
     <%= image_tag my_coordinate_image.image_url, class: 'card-img-top', id:"coordinate-image-#{my_coordinate_image.id}",width: 200, height: 300  %>
     <div class="card-body text-right ">
+      <div class="form-inline">
+        <% if my_coordinate_image.tags.present? %>
+          <% my_coordinate_image.tags.each do |tag|%>
+            <p class="mr-3 badge bg-secondary"><%= tag %></p>
+          <% end %>
+        <% else %>
+        <% end %>
+      </div>
       <a class="download-button" id="<%="#{my_coordinate_image.id}"%>">
         <%= image_tag '/icon/download32.png'%>
       </a>
