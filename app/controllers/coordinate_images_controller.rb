@@ -3,6 +3,7 @@ class CoordinateImagesController < ApplicationController
 
   def index
     @coordinate_images = CoordinateImage.all.order(created_at: :desc).page(params[:page])
+    @tags = @coordinate_images.tag_counts_on(:tags)
   end
 
   def show
@@ -11,6 +12,7 @@ class CoordinateImagesController < ApplicationController
   def my_coordinate_image
     @user = User.find(current_user.id)
     @my_coordinate_images = @user.coordinate_images.order(created_at: :desc).page(params[:page])
+    #@tags = @.tag_counts_on(:tags)
   end
 
   def new
@@ -43,6 +45,6 @@ class CoordinateImagesController < ApplicationController
   private
 
   def coordinate_image_params
-    params.require(:coordinate_image).permit(:image).merge(user_id: current_user.id)
+    params.require(:coordinate_image).permit(:image, :tag_list).merge(user_id: current_user.id)
   end
 end

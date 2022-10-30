@@ -3,6 +3,13 @@
       <%= image_tag coordinate_image.image_url, class: 'card-img-top', width: 200, height: 300%>
     <div class="card-body">
       <div class=''>
+        <% if @tags.present? %>
+          <% @tags.each do |tag|%>
+            <p><%= tag %></p>
+          <% end %>
+        <% else %>
+          <p>タグはありません</p>
+        <% end %>
         <%if logged_in?%>
           <% if current_user.own?(coordinate_image) %>
             <%= link_to coordinate_image_path(coordinate_image.id), id: "button-delete-#{coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
