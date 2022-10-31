@@ -2,9 +2,17 @@
   <div class="card p-3 border bg-light">
     <%= image_tag my_coordinate_image.image_url, class: 'card-img-top', id:"coordinate-image-#{my_coordinate_image.id}",width: 200, height: 300  %>
     <div class="card-body text-right ">
-      <a class="download-button" id="<%="#{my_coordinate_image.id}"%>">
-        <%= image_tag '/icon/download32.png'%>
-      </a>
+      <div class="form-inline">
+        <% if my_coordinate_image.tags.present? %>
+          <% my_coordinate_image.tags.each do |tag|%>
+            <div class="mr-3 badge bg-secondary">
+              <%= link_to "#{tag.name}", tag_images_path(tag: tag.name) %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>no tag</p>
+        <% end %>
+      </div>
       <%= link_to coordinate_image_path(my_coordinate_image.id), id: "button-delete-#{my_coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
         <%= image_tag '/icon/trashbox.png'%>
       <% end %>

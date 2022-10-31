@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
   end
   get 'my_coordinate_images', to: 'coordinate_images#my_coordinate_image'
+  get 'tag_images', to: 'coordinate_images#tag_images'
 
   #管理者ページ
   namespace :admin do

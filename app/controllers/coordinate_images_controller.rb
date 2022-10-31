@@ -3,16 +3,20 @@ class CoordinateImagesController < ApplicationController
 
   def index
     @coordinate_images = CoordinateImage.all.order(created_at: :desc).page(params[:page])
-    @tags = @coordinate_images.tag_counts_on(:tags)
   end
 
-  def show
+  def show; end
+
+  def tag_images
+    @tags = CoordinateImage.tag_counts_on(:tags).order('count DESC')     # 全タグ(Postモデルからtagsカラムを降順で取得)
+    if @tag = params[:tag]   # タグ検索用
+      @image = CoordinateImage.tagged_with(params[:tag]).page(params[:page])  # タグに紐付く投稿
+    end
   end
 
   def my_coordinate_image
     @user = User.find(current_user.id)
     @my_coordinate_images = @user.coordinate_images.order(created_at: :desc).page(params[:page])
-    #@tags = @.tag_counts_on(:tags)
   end
 
   def new
