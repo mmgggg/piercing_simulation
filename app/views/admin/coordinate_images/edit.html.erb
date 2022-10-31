@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1>編集</h1>
+      <%= form_with model: @coordinate_image, url: admin_coordinate_image_path(@coordinate_image), local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <div class="image">
+          <%= image_tag @coordinate_image.image_url, width: 300, height: 350;%>
+        </div>
+        <div class="form-group">
+          <%= f.label :tag_list %>
+          <%= f.text_field :tag_list, value: @coordinate_image.tag_list.join(',')%>
+        </div>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

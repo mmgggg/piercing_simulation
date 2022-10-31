@@ -27,7 +27,8 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-     <%= yield %>
+      <%= render 'shared/flash_message' %>
+      <%= yield %>
     </div>
     <!-- /.content-wrapper -->
 
@@ -36,3 +37,4 @@
   <%# <%= javascript_include_tag '/javascript/packs/admin' %> 
   </body>
 </html>
+
