@@ -1,0 +1,30 @@
+<div class="col-3">
+  <div class="card p-3 border bg-light" id="tag_images-id-<%= tag_image.id%>">
+    <%= image_tag tag_image.image_url, class: 'card-img-top', width: 200, height: 300%>
+    <div class="card-body text-right">
+      <div class=''>
+        <div class="form-inline">
+          <% if tag_image.tags.present? %>
+            <% tag_image.tags.each do |tag|%>
+              <div class="mr-3 badge bg-secondary">
+                <%= link_to "#{tag.name}", tag_images_path(tag: tag.name) %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>no tag</p>
+          <% end %>
+        </div>
+          <%if logged_in?%>
+            <% if current_user.own?(tag_image) %>
+              <%= link_to coordinate_image_path(tag_image.id), id: "button-delete-#{tag_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
+                <%= image_tag '/icon/trashbox.png'%>
+              <% end %>
+            <% else %>
+              <%= render 'bookmark_area', coordinate_image: tag_image %>
+            <% end %>
+          <% else %>
+          <%end%>
+        </div>
+    </div>
+  </div>
+</div>

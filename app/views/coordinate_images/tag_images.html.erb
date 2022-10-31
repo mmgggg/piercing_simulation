@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <h1><%= "#{@tag}の投稿" %></h1>
+    <div class="row g-5">
+        <% if @image.present? %>
+          <%= render partial: 'tag_image', collection: @image %>
+        <% else %>
+          <p><%= "#{@tag}に投稿された画像はありません"%></p>
+        <% end %>
+    </div>
+  <%= paginate @image %>
+</div>

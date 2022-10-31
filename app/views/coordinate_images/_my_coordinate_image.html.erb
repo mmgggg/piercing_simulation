@@ -5,14 +5,14 @@
       <div class="form-inline">
         <% if my_coordinate_image.tags.present? %>
           <% my_coordinate_image.tags.each do |tag|%>
-            <p class="mr-3 badge bg-secondary"><%= tag %></p>
+            <div class="mr-3 badge bg-secondary">
+              <%= link_to "#{tag.name}", tag_images_path(tag: tag.name) %>
+            </div>
           <% end %>
         <% else %>
+          <p>no tag</p>
         <% end %>
       </div>
-      <a class="download-button" id="<%="#{my_coordinate_image.id}"%>">
-        <%= image_tag '/icon/download32.png'%>
-      </a>
       <%= link_to coordinate_image_path(my_coordinate_image.id), id: "button-delete-#{my_coordinate_image.id}", method: :delete, data: {confirm: '削除しますか？'} do %>
         <%= image_tag '/icon/trashbox.png'%>
       <% end %>
