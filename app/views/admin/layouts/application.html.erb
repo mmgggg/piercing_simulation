@@ -6,12 +6,19 @@
     <meta charset="utf-8">
     <meta lang='ja'>
     <meta name="robots" content="noindex, nofollow">
+    
+    <%#jsファイルを読み込まないとmethod::deleteが効かない%>
     <%= csrf_meta_tags %>
+    <%# <%= csp_meta_tag %> 
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %> 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <%# ここでadmin.scssを読み込む %>
     <%= stylesheet_link_tag 'admin', media: 'all' %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   </head>
-
+  
   <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
@@ -26,6 +33,6 @@
 
   </div>
   <%# ↓ここでadmin.jsを読み込む %>
-  <%# <%= javascript_include_tag '/javascript/packs/admin' %>
+  <%# <%= javascript_include_tag '/javascript/packs/admin' %> 
   </body>
 </html>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'user_sessions/new'
+    get 'user_sessions/create'
+    get 'user_sessions/destroy'
+  end
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   #ユーザー登録
@@ -28,6 +33,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboards#index"
     resources :pierce_images, only: %i[index new edit create update destroy]
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    resources :users, only: %i[index show edit update destroy]
   end
 
   #bookmark機能
