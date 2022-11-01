@@ -5,15 +5,15 @@ class Admin::BaseController < ApplicationController
 
   private
 
-  def not_authenticated
-    flash[:warning] = "ログインしてください"
-    redirect_to admin_login_path
-  end
+  # def not_authenticated
+  #   flash[:warning] = "ログインしてください"
+  #   redirect_to admin_login_path
+  # end
 
-  def check_admin
-    unless current_user.admin?
-      flash[:warning] = "権限がありません"
-      redirect_to admin_login_path
-    end
-  end
+  # def check_admin
+  #   unless current_user.admin?
+  #     flash[:warning] = "権限がありません"
+  #     redirect_to admin_login_path
+  #   end
+  # end
 end
