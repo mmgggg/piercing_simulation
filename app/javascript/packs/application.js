@@ -19,3 +19,8 @@ ActiveStorage.start()
 //bootstrap読み込み
 import "bootstrap";
 import "../stylesheets/application.scss";
+
+//bookmark機能ajax化のための読み込み
+var jQuery = require('jquery')
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
