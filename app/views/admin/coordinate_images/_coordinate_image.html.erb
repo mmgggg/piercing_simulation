@@ -1,0 +1,30 @@
+<tr>
+  <td>
+    <%= coordinate_image.id %>
+  </td>
+  <td style="width: 100px; height: 150px;">
+    <%= image_tag coordinate_image.image_url, width: 100, height: 150 %>
+  </td>
+  <td>
+    <% if coordinate_image.tags.present?%>
+      <% coordinate_image.tags.each do |tag| %>
+        <div class="mr-3 badge bg-secondary">
+          <p><%= tag.name %><p>
+        </div>
+      <% end %>
+    <% else %>
+      <p>no tags</p>
+    <%end%>
+  </td>
+  <td>
+    <%= coordinate_image.user.name %>
+  </td>
+  <td>
+    <%= l coordinate_image.created_at, format: :long %>
+  </td>
+  <td>
+    <%= link_to t('defaults.show'), admin_coordinate_image_path(coordinate_image), class: 'btn btn-info' %>
+    <%= link_to t('defaults.edit'), edit_admin_coordinate_image_path(coordinate_image), class: 'btn btn-success' %>
+    <%= link_to t('defaults.delete'), admin_coordinate_image_path(coordinate_image), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
+  </td>
+</tr>

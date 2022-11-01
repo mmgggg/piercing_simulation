@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1>詳細</h1>
+      <div class="text-right mb-3">
+        <%= link_to t('defaults.edit'), edit_admin_coordinate_image_path(@coordinate_image), class: 'btn btn-success' %>
+        <%= link_to t('defaults.delete'), admin_coordinate_image_path(@coordinate_image), method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-danger' %>
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row"><%= CoordinateImage.human_attribute_name(:id) %></th>
+          <td><%= @coordinate_image.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= CoordinateImage.human_attribute_name(:image) %></th>
+          <td><%= image_tag @coordinate_image.image.url, width: 300, height: 300 %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= CoordinateImage.human_attribute_name(:tag) %></th>
+          <td>
+            <% if @coordinate_image.tags.present?%>
+              <% @coordinate_image.tags.each do |tag| %>
+                <div class="mr-3">
+                  <p><%= tag.name %><p>
+                </div>
+              <% end %>
+            <% else %>
+              <p>no tags</p>
+            <%end%>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><%= CoordinateImage.human_attribute_name(:user) %></th>
+          <td><%= @coordinate_image.user.name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= CoordinateImage.human_attribute_name(:created_at) %></th>
+          <td><%= l @coordinate_image.created_at, format: :long %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

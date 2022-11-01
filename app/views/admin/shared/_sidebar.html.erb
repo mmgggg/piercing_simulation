@@ -9,11 +9,8 @@
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <p>image</p>
-      </div>
       <div class="info">
-        <a href="#" class="d-block"><p>username</p></a>
+        <a href="#" class="d-block"><p><%="#{current_user.name}"%></p></a>
       </div>
     </div>
     <!-- Sidebar Menu -->
@@ -28,7 +25,7 @@
           <% end %>
 
         <li class="nav-item">
-          <%= link_to '#', class: "nav-link" do %>
+          <%= link_to admin_users_path, class: "nav-link" do %>
             <i class="nav-icon far fa-user"></i>
             <p>
               ユーザ一管理
@@ -36,7 +33,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to '#', class: "nav-link" do %>
+          <%= link_to admin_coordinate_images_path, class: "nav-link" do %>
             <i class="nav-icon far fa-user"></i>
             <p>
               コーディネート画像管理
