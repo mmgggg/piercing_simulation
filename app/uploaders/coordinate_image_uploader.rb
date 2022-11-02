@@ -49,7 +49,7 @@ class CoordinateImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 end
