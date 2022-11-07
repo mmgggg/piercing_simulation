@@ -47,4 +47,7 @@ Rails.application.routes.draw do
 
   get 'simulation_page', to: 'simulation#main'
 
+  #footerのURL作成
+  get 'privacy_policy', to: 'footer#privacy_policy'
+
 end
