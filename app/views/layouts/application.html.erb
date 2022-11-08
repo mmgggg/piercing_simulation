@@ -3,13 +3,14 @@
   <head>
     <title>PiercingSimulation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%#favicon設定%>
+   <%= favicon_link_tag('favicon.ico') %>
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %> 
-    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
      
     <%# CSS読み込み設定%>
@@ -24,7 +25,6 @@
 
     <%# フラッシュメッセージレンダリング%>
     <%= render 'shared/flash_message' %>
-
   </head>
 
   <body>
