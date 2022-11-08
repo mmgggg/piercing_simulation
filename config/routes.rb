@@ -50,4 +50,9 @@ Rails.application.routes.draw do
   #footerのURL作成
   get 'privacy_policy', to: 'footer#privacy_policy'
 
+  #お問合せ機能
+  resources :contacts, only: [:new, :create]
+  post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'done', to: 'contacts#done', as: 'done'
+
 end

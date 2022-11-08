@@ -10,10 +10,10 @@
           <a href="#!" class="text-reset">利用規約</a>
         </div>
          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <a href="privacy_policy.html" class="text-reset">プライバシポリシー</a>
+          <%= link_to "プライバシーポリシー", privacy_policy_path, class:"text-reset"%>
         </div>
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <%= link_to "お問合せ", privacy_policy_path, class: "text-reset"%>
+          <%= link_to "お問合せ", new_contact_path, class: "text-reset"%>
         </div>
     </div>
   </section>

@@ -14,11 +14,9 @@
  *= require_self
  */
 
- /* @import "tailwindcss/base";
- @import "tailwindcss/components";
- @import "tailwindcss/utilities";
- */
-
+/* html {
+  height: 100vh;
+} */
 
 body {
   font-family: 'TsukuARdGothic-Regular', sans-serif;
