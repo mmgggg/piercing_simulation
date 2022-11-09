@@ -47,4 +47,13 @@ Rails.application.routes.draw do
 
   get 'simulation_page', to: 'simulation#main'
 
+  #footerのURL作成
+  get 'privacy_policy', to: 'footer#privacy_policy'
+  get 'terms_of_service', to: 'footer#terms_of_service'
+
+  #お問合せ機能
+  resources :contacts, only: [:new, :create]
+  post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'done', to: 'contacts#done', as: 'done'
+
 end

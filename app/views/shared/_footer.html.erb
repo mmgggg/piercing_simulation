@@ -4,20 +4,17 @@
     <div class="container text-center text-md-start mt-5" style="padding-top: 10px">
       <div class="row mt-3">
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <a href="#!" class="text-reset">About</a>
-        </div>
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <a href="#!" class="text-reset">利用規約</a>
+          <%= link_to "利用規約", terms_of_service_path, class:"text-reset"%>
         </div>
          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <a href="#!" class="text-reset">プライバシポリシー</a>
+          <%= link_to "プライバシーポリシー", privacy_policy_path, class:"text-reset"%>
         </div>
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <a href="#!" class="text-reset">お問合せ</a>
+          <%= link_to "お問合せ", new_contact_path, class: "text-reset"%>
         </div>
     </div>
   </section>
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  <div class="text-center" style="color: gray; font-size: 15px;">
     © 2021 Copyright: Piercing Simulation
   </div>
 </footer>
