@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   #ユーザー登録
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create destroy]
 
   #ログイン機能
   get 'login', to: 'user_sessions#new'

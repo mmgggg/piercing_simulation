@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: %i[destroy]
+
   def new
     @user = User.new
   end
@@ -12,6 +14,13 @@ class UsersController < ApplicationController
       flash[:danger] = 'ユーザーの作成に失敗しました'
       render :new
     end
+  end
+
+  def destroy
+    @user = User.find(current_user.id)
+    @user.destroy
+    flash[:notice] = 'ユーザーを削除しました。'
+    redirect_to root_path
   end
 
   private
