@@ -1,16 +1,17 @@
-<div class="container-fruid">
-  <h1> Image Posts</h1>
- 
+<div class="container-fruid m-4">
+  <div class="m-4 text-center">
+    <h1> Image Posts</h1>
+  </div>
   <div class="row">
     <div class="col-4 mx-auto">
       <%= form_with model: @coordinate_image, html: { method: :post, multipart: true },local: true do |f| %>
         <div class="form-group">
           <%= f.label :image %>
-          <%= f.file_field :image %>
+          <%= f.file_field :image, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :tag_list %>
-          <%= f.text_field :tag_list, value: @coordinate_image.tag_list.join(',')%>
+          <%= f.label :tag_list, "Tag" %>
+          <%= f.text_field :tag_list, class: "form-control", value: @coordinate_image.tag_list.join(','), placeholder: "(,)区切りで複数のタグを登録できます"%>
         </div>
         <div class="col-4 mx-auto">
           <%= f.submit "Posts", class: "btn btn-secondary" %>
