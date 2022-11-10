@@ -17,6 +17,9 @@
           </div>
         <% end %>
       </div>
+      <div class="destroy">
+        <%= link_to "退会はこちら", user_path(current_user.id), method: :delete, "data-confirm" => "退会した場合、#{current_user.name}の情報は完全に削除されます。本当に退会してよろしいですか？" %>
+      </div>
     </div>
   </div>
 </div>
