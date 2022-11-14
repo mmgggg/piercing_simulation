@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   #パスワードリセット
   resources :password_resets, only: %i[new create edit update]
 
+  #シミュレーションページから投稿
+  resources :simulation, only: %i[new create]
+
   #コーディネート画像機能
   resources :coordinate_images, only: %i[index show new create destroy] do
     collection do
