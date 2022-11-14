@@ -82,6 +82,16 @@ document.addEventListener('turbolinks:load', () => {
     });
   });
 
+  //画像投稿
+  window.postImage = function(){
+    html2canvas(document.querySelector(".ear-image")).then(canvas => { 
+      url = canvas.toDataURL('image/jpeg', 0.8);
+      document.querySelector("#url_field").value = url;
+      document.querySelector("#to_post").submit();
+    });
+  };
+
+
   //コピー画像の消去
   window.removeImage = function(dblclicked_id){
     var removeTarget = document.querySelector(`#${dblclicked_id}`);

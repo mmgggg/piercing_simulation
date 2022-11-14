@@ -1,6 +1,10 @@
 <div class="col-3">
   <div class="card p-3 border bg-light" id="coordinate_image-id-<%= coordinate_image.id%>">
-      <%= image_tag coordinate_image.image_url, class: 'card-img-top', width: 200, height: 300%>
+    <% if coordinate_image.image_url.present? %>
+      <%= image_tag coordinate_image.image_url, class: 'card-img-top', id:"coordinate-image-#{coordinate_image.id}",width: 200, height: 300  %>
+    <% else %>
+      <%= image_tag coordinate_image.for_post_image_url, class: 'card-img-top', id:"coordinate-image-#{coordinate_image.id}",width: 200, height: 300  %>
+    <% end %>
     <div class="card-body text-right">
       <div class=''>
         <div class="form-inline">
