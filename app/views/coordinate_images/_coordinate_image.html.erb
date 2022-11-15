@@ -15,6 +15,9 @@
               </div>
             <% end %>
           <% else %>
+            <div class="mr-3 badge bg-light">
+              <%= link_to "No Tag" %>
+            </div>  
           <% end %>
         </div>
         <%if logged_in?%>

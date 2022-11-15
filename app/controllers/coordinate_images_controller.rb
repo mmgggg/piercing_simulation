@@ -43,7 +43,7 @@ class CoordinateImagesController < ApplicationController
 
   #ブックマークしているイメージ一覧
   def bookmarks
-    @bookmark_coordinate_images = current_user.bookmark_coordinate_images.includes(:user).order(created_at: :desc)
+    @bookmark_coordinate_images = current_user.bookmark_coordinate_images.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private

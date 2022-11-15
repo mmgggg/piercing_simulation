@@ -1,5 +1,5 @@
-<div class="container-fluid m-4 text-center">
-  <h1><%= "#{@tag}の投稿" %></h1>
+<div class="container">
+  <h1 class="text-center"><%= "「#{@tag}」タグの投稿" %></h1>
     <div class="row g-5">
         <% if @image.present? %>
           <%= render partial: 'tag_image', collection: @image %>

@@ -1,6 +1,6 @@
-<div class="container-fluid overflow-hidden text-center m-4">
+<div class="container overflow-hidden">
   <div class="mb-3">
-    <h1>Welcome,<%= current_user.name%></h1>
+    <h1 class="text-center">Welcome,<%= current_user.name%></h1>
   </div>
   <div class="row gx-5" >
     <div class="col-4">
@@ -8,7 +8,7 @@
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/ear-icon.png'%>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
           <div class="card-title" >
             <%= link_to 'Simulation', simulation_page_path, data: {"turbolinks" => false}, class:"btn btn-secondary" %>
           </div>
@@ -21,7 +21,7 @@
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/post.png'%>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
           <div class="card-title">
             <%= link_to 'Posts', new_coordinate_image_path, class:"btn btn-secondary" %>
           </div>
@@ -34,7 +34,7 @@
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/face.png'%>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
           <div class="card-title">
             <%= link_to 'Coordinate Images', coordinate_images_path, class:"btn btn-secondary" %>
           </div>
@@ -47,11 +47,11 @@
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/myimage.png'%>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
           <div class="card-title">
             <%= link_to 'My Coordinates Images', my_coordinate_images_path, class:"btn btn-secondary" %>
           </div>
-          <p class="card-text">自分が投稿したイメージを見ることができます</p>
+          <p class="card-text">投稿したイメージを見ることができます</p>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/heart.png'%>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
           <div class="card-title">
             <%= link_to 'My Bookmarks', bookmarks_coordinate_images_path, class:"btn btn-secondary" %>
           </div>
@@ -73,7 +73,7 @@
         <div class="card-img-top text-center card-header bg-transparent" alt="card-grid-image">
           <%= image_tag '/icon/pen.png'%>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
           <div class="card-title">
             <%= link_to 'Profile Edit', edit_profiles_path, class:"btn btn-secondary"%>
           </div>
