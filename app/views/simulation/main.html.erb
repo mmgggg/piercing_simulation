@@ -93,12 +93,14 @@
           <button id="clean-btn" class="btn btn-secondary" onClick="removeMoveable()">Clean</button>
         </div>
         <%#投稿ボタン%>
-        <div class="post-button col-4">
-          <%= form_with model: @coordinate_image, url: {controller: 'simulation', action: 'create' }, id: "to_post" do |f| %>
-            <%= f.hidden_field :for_post_image_url, :value => '', id: "url_field" %>
-          <% end %>
-          <button class="btn btn-secondary", id="post-button", onClick="postImage()">Post</button> 
-        </div>
+        <% if logged_in? %>
+          <div class="post-button col-4">
+            <%= form_with model: @coordinate_image, url: {controller: 'simulation', action: 'create' }, id: "to_post" do |f| %>
+              <%= f.hidden_field :for_post_image_url, :value => '', id: "url_field" %>
+            <% end %>
+            <button class="btn btn-secondary", id="post-button", onClick="postImage()">Post</button> 
+          </div>
+        <% end%>
         <%# Downloadボタン%>
         <div class="download-button col-4">
           <input id="download-btn" type="button" value="Download" class="btn btn-dark">
