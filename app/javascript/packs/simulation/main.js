@@ -28,7 +28,8 @@ document.addEventListener('turbolinks:load', () => {
     cloneElement.removeAttribute("onclick");
     //新しくonclick属性を付与
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
-    cloneElement.setAttribute('ondblclick', 'removeImage(this.id)')
+    cloneElement.setAttribute('ondblclick', 'removeImage(this.id)');
+    //cloneElement.setAttribute('onclick', 'removeMoveable(this.id)');
     //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
     // コピーした画像のidを書き換える
     var head = "copy-image";
