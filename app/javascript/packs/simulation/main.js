@@ -27,17 +27,16 @@ document.addEventListener('turbolinks:load', () => {
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
     //新しくonclick属性を付与
+    //cloneElement.setAttribute('onmouseenter', 'useMoveable(this.id)');
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     cloneElement.setAttribute('ondblclick', 'removeImage(this.id)');
-    //cloneElement.setAttribute('ondblclick', 'removeMoveable(this.id)');
-    //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
+    //cloneElement.setAttribute('onmouseup', 'removeMoveable(this.id)');
     // コピーした画像のidを書き換える
     const head = "copy-image";
     const length = document.querySelector('.add-drag-and-drop').childElementCount;
     for(let i=1; i <= length; i++){
       cloneElement.id = head + i;
     } 
-
   };  
 
   //moveable実装コード
@@ -96,7 +95,6 @@ document.addEventListener('turbolinks:load', () => {
 
   //コピー画像の消去
   window.removeImage = function(clicked_id){
-    alert(clicked_id);
     const removeTarget = document.querySelector(`#${clicked_id}`);
     removeTarget.parentNode.removeChild(removeTarget);
     const moveableClass = document.querySelectorAll(".rCSwd26qe");
