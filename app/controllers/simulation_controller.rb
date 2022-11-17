@@ -13,10 +13,10 @@ class SimulationController < ApplicationController
     @coordinate_image.user = current_user
     @coordinate_image.for_post_image_url = params['for_post_image_url']
     if @coordinate_image.save
-      flash[:success] = "投稿しました"
+      flash[:secondary] = "投稿しました"
       redirect_to my_coordinate_images_path(current_user.id)
     else
-      flash.now[:danger] = "投稿できませんでした"
+      flash.now[:dark] = "投稿できませんでした"
       render :main
     end
   end

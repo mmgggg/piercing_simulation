@@ -26,10 +26,10 @@ class CoordinateImagesController < ApplicationController
   def create
     @coordinate_image = CoordinateImage.new(coordinate_image_params)
     if @coordinate_image.save
-      flash[:success] = "投稿しました"
+      flash[:secondary] = "投稿しました"
       redirect_to my_coordinate_images_path(current_user.id)
     else
-      flash.now[:danger] = "投稿できませんでした"
+      flash.now[:dark] = "投稿できませんでした"
       render :new
     end
   end
@@ -37,13 +37,13 @@ class CoordinateImagesController < ApplicationController
   def destroy
     @coordinate_image = current_user.coordinate_images.find(params[:id])
     @coordinate_image.destroy!
-    flash[:success] = "削除しました"
+    flash[:notice] = "削除しました"
     redirect_to my_coordinate_images_path
   end
 
   #ブックマークしているイメージ一覧
   def bookmarks
-    @bookmark_coordinate_images = current_user.bookmark_coordinate_images.includes(:user).order(created_at: :desc)
+    @bookmark_coordinate_images = current_user.bookmark_coordinate_images.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private

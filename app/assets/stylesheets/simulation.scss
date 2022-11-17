@@ -14,13 +14,26 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid gray!important;
   box-sizing: border-box;
-  background: gray!important;
+  background: #afafb0!important;
   margin-top: -7px;
   margin-left: -7px;
   z-index: 10;
 }
+
+.moveable-direction.moveable-n, .moveable-direction.moveable-w, .moveable-direction.moveable-e, .moveable-direction.moveable-s, .moveable-origin {
+  display: none;
+}
+
+.moveable-line {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: black!important;
+  transform-origin: 0px 0.5px;
+}
+
 
 .drag-and-drop {
   position: absolute;

@@ -11,8 +11,9 @@
       gtag('config', 'G-MTQ1YL9YB1');
     </script>
 
-    <title>PiercingSimulation</title>
+    <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    
     <%#favicon設定%>
     <%= favicon_link_tag('favicon.ico') %>
     
@@ -25,6 +26,7 @@
      
     <%# CSS読み込み設定%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     
     <%#ログインの有無でリンクを切り替え%>
     <% if logged_in? %>

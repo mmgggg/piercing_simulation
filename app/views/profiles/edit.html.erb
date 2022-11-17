@@ -1,25 +1,24 @@
-<div class="container-fruild m-4">
+<% content_for(:title, "Profile Edit") %>
+<div class="container">
   <div class="row">
-    <div class="text-center">
-     <h1>Profile Edit</h1>
-      <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-        <%= form_with model: @user, url: profiles_path, local: true do |f| %>
-          <div class="form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :email %>
-            <%= f.text_field :email, class: 'form-control' %>
-          </div>
-          <div class="actions">
-            <%= f.submit '更新', class: 'btn btn-secondary' %>
-          </div>
-        <% end %>
-      </div>
-      <div class="destroy mt-4">
-        <%= link_to "退会はこちら", user_path(current_user.id), method: :delete, class: "link-secondary", "data-confirm" => "退会した場合、#{current_user.name}の情報は完全に削除されます。本当に退会してよろしいですか？" %>
-      </div>
+    <h1 class="text-center m-4">Profile Edit</h1>
+    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <%= form_with model: @user, url: profiles_path, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, type:'email', class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Update', class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="destroy mt-4 text-center">
+      <%= link_to "退会はこちら", user_path(current_user.id), method: :delete, class: "link-secondary", "data-confirm" => "退会した場合、#{current_user.name}の情報は完全に削除されます。本当に退会してよろしいですか？" %>
     </div>
   </div>
 </div>
