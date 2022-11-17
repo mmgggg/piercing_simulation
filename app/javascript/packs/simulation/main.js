@@ -29,7 +29,7 @@ document.addEventListener('turbolinks:load', () => {
     //新しくonclick属性を付与
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     cloneElement.setAttribute('ondblclick', 'removeImage(this.id)');
-    //cloneElement.setAttribute('onclick', 'removeMoveable(this.id)');
+    cloneElement.setAttribute('ondblclick', 'removeMoveable(this.id)');
     //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
     // コピーした画像のidを書き換える
     var head = "copy-image";
@@ -62,6 +62,7 @@ document.addEventListener('turbolinks:load', () => {
     move.on("rotate", ({ target, transform }) => {
       target.style.transform = transform
     });
+    
   };
 
   //Moveableの移動枠を消去
@@ -77,8 +78,8 @@ document.addEventListener('turbolinks:load', () => {
   btn.addEventListener("click",() => {
     html2canvas(document.querySelector(".ear-image")).then(canvas => { 
       let downloadEle = document.createElement("a");
-      downloadEle.href = canvas.toDataURL("image/png");
-      downloadEle.download = "piercing_simulation.png";
+      downloadEle.href = canvas.toDataURL("image/jpeg");
+      downloadEle.download = "piercing_simulation.jpeg";
       downloadEle.click();
     });
   });
@@ -94,8 +95,9 @@ document.addEventListener('turbolinks:load', () => {
 
 
   //コピー画像の消去
-  window.removeImage = function(dblclicked_id){
-    var removeTarget = document.querySelector(`#${dblclicked_id}`);
+  window.removeImage = function(clicked_id){
+    alert(clicked_id);
+    var removeTarget = document.querySelector(`#${clicked_id}`);
     removeTarget.parentNode.removeChild(removeTarget);
     const moveableClass = document.querySelectorAll(".rCSwd26qe");
     for (var i=0; i<moveableClass.length; i++ ){

@@ -6,6 +6,7 @@
   <div class="row">
     <div class="col-4 mx-auto">
       <%= form_with model: @coordinate_image, html: { method: :post, multipart: true },local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
         <div class="form-group">
           <%= f.label :image %>
           <%= f.file_field :image, class: "form-control" %>

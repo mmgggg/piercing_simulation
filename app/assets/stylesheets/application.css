@@ -18,9 +18,25 @@
   height: 100vh;
 } */
 
+* {
+  box-sizing: border-box;
+}
+ 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+ 
 body {
   font-family: 'TsukuARdGothic-Regular', sans-serif;
   background-color: #eaeaea;
+  display: flex;
+  flex-direction: column;
+}
+ 
+footer {
+  margin-top: auto;
 }
 
 .pagination {
