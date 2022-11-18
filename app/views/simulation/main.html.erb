@@ -21,7 +21,7 @@
   <div class="row">
     <%# 耳画像 %>
     <div class="col-6 d-flex justify-content-end mr-4">
-      <div class="ear-image" style="height: 360px; width: 300px;">
+      <div class="ear-image" onmouseUp="removeMoveable()" style="height: 360px; width: 300px;">
         <canvas id="ear-image" width="300" height="360"></canvas>
         <div class="add-drag-and-drop" >
         </div>
@@ -88,11 +88,7 @@
           </div>
         </div>
       </div>
-      <div class="button-group row pt-3">
-        <%# Cleanボタン%>
-        <div class="clean-button col-4">
-          <button id="clean-btn" class="btn btn-secondary" onClick="removeImage()">Clean</button>
-        </div>
+      <div class="btn-group row pt-3" role="group">
         <%#投稿ボタン%>
         <% if logged_in? %>
           <div class="post-button col-4">
