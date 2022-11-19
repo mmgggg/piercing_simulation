@@ -14,6 +14,7 @@
         <div class="form-group">
           <%= f.label :tag_list, "Tag" %>
           <%= f.text_field :tag_list, class: "form-control", value: @coordinate_image.tag_list.join(','), placeholder: "(,)区切りで複数のタグを登録できます"%>
+          <%= f.check_box ;tag_list%>
         </div>
         <div class="col-4 mx-auto">
           <%= f.submit "Posts", class: "btn btn-secondary" %>
