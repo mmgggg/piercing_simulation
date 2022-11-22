@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
   let(:user) { FactoryBot.create(:user) }
 
-  describe 'user_validation' do
+  describe 'ユーザー登録バリデーション' do
     it '全てのフォームが埋まっていれば登録できる' do
       expect(build(:user)).to be_valid
     end
