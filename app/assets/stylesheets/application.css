@@ -24,7 +24,7 @@
  
 html, body {
   height: 100%;
-  margin: 0;
+  margin: auto;
   padding: 0;
   max-width: 1300px;
   max-height: 550px;
@@ -35,8 +35,8 @@ body {
   background-color: #eaeaea;
   display: flex;
   flex-direction: column;
-  margin-right: auto;
-  margin-left: auto;
+  /* margin-right: auto;
+  margin-left: auto; */
 }
  
 footer {
