@@ -1,6 +1,6 @@
 <% content_for(:title, "#{@tag} Images") %>
 <div class="container">
-  <h1 class="text-center"><%= "「#{@tag}」タグの投稿" %></h1>
+  <h1 class="text-center m-4"><%= "「#{@tag}」タグの投稿" %></h1>
     <div class="row g-5">
         <% if @image.present? %>
           <%= render partial: 'tag_image', collection: @image %>
