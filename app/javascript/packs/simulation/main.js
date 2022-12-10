@@ -67,7 +67,7 @@ document.addEventListener('turbolinks:load', () => {
 
   //Moveableの移動枠を消去
   window.removeMoveable = function(){
-    const moveableClass = document.querySelectorAll(".rCSwd26qe");
+    const moveableClass = document.querySelectorAll(".rCS1h1rqv3");
     for (let i=0; i<moveableClass.length; i++ ){
       moveableClass[i].style.display = "none";
     }
