@@ -31,6 +31,7 @@ document.addEventListener('turbolinks:load', () => {
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
     cloneElement.setAttribute('ondblclick', 'removeImage(this.id)');
     cloneElement.setAttribute('onmouseup', 'removeMoveable(this.id)');
+    
     // コピーした画像のidを書き換える
     const head = "copy-image";
     const length = document.querySelector('.add-drag-and-drop').childElementCount;
