@@ -1,5 +1,6 @@
-<div class="container-fruid">
-  <h1> Bookmarks</h1>
+<% content_for(:title, "My Bookmarks") %>
+<div class="container">
+  <h1 class="text-center m-4">My Bookmarks</h1>
   <div class="row g-5">
    <% if @bookmark_coordinate_images.present? %>
      <%= render @bookmark_coordinate_images %>
@@ -7,4 +8,5 @@
     <p>お気に入りはありません</p>
    <% end %>
   </div>
+  <%= paginate @bookmark_coordinate_images %>
 </div>

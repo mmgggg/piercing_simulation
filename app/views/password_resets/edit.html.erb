@@ -1,25 +1,24 @@
-<div class="container-fruild">
+<div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1><%= Password Update %></h1>
+      <h1 class="text-center m-4">Password Update</h1>
       <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-
+        <%= render 'shared/error_messages', model: f.object %>
         <div class="form-group">
-          <%= f.label :email %>
+          <%= f.label :email, "email:" %>
           <%= @user.email %>
         </div>
         <div class="form-group">
           <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
+          <%= f.password_field :password, class: 'form-control', placeholder: "新しいパスワードを入力してください"%>
         </div>
         <div class="form-group">
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "確認のためもう一度ご入力ください" %>
         </div>
         <div class="actions">
           <p class="text-center">
-          <%= f.submit class: 'btn btn-secondary' %>
+          <%= f.submit "Update", class: 'btn btn-secondary' %>
           </p>
         </div>
       <% end %>

@@ -1,4 +1,4 @@
-<div class="container-fluid pt-5">
+<div class="container">
   <div class="row">
     <div class="image-fruid col-4 mx-auto">
       <img src="/logo_video.gif">
@@ -9,7 +9,7 @@
         <%= link_to "Login", login_path, class:"btn btn-secondary d-grid gap-2" %>
       </div>
       <div class="guest-user col-3 d-grid gap-2">
-        <%= link_to "Guest User", simulation_page_path, class: "guest-user btn btn-dark" %>
+        <%= link_to "Guest User", simulation_page_path, data: {"turbolinks" => false}, class: "guest-user btn btn-dark" %>
       </div>
     </div>
     <div class="newuser col-12 text-center">
@@ -17,5 +17,3 @@
     </div>
   </div>
 </div>
-
-

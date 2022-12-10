@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   #ユーザー登録
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create destroy]
 
   #ログイン機能
   get 'login', to: 'user_sessions#new'
@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   #パスワードリセット
   resources :password_resets, only: %i[new create edit update]
+
+  #シミュレーションページから投稿
+  resources :simulation, only: %i[new create]
 
   #コーディネート画像機能
   resources :coordinate_images, only: %i[index show new create destroy] do
@@ -46,5 +49,14 @@ Rails.application.routes.draw do
   root "top_page#top"
 
   get 'simulation_page', to: 'simulation#main'
+
+  #footerのURL作成
+  get 'privacy_policy', to: 'footer#privacy_policy'
+  get 'terms_of_service', to: 'footer#terms_of_service'
+
+  #お問合せ機能
+  resources :contacts, only: [:new, :create]
+  post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'done', to: 'contacts#done', as: 'done'
 
 end

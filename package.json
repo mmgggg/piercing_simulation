@@ -13,7 +13,7 @@
     "bootstrap": "5.1.1",
     "daisyui": "^2.31.0",
     "html2canvas": "^1.4.1",
-    "moveable": "^0.36.3",
+    "moveable": "^0.5.0",
     "postcss": "^7",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",

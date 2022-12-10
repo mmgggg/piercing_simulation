@@ -2,9 +2,15 @@
   <td>
     <%= coordinate_image.id %>
   </td>
-  <td style="width: 100px; height: 150px;">
-    <%= image_tag coordinate_image.image_url, width: 100, height: 150 %>
-  </td>
+  <% if coordinate_image.image_url.present? %>
+    <td style="width: 100px; height: 150px;">
+      <%= image_tag coordinate_image.image_url, width: 100, height: 150 %>
+    </td>
+  <% else %>
+    <td style="width: 100px; height: 150px;">
+      <%= image_tag coordinate_image.for_post_image_url, width: 100, height: 150 %>
+    </td>
+  <% end %>
   <td>
     <% if coordinate_image.tags.present?%>
       <% coordinate_image.tags.each do |tag| %>

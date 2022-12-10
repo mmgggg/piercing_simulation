@@ -1,0 +1,27 @@
+<% content_for(:title, "Contact") %>
+<div class="container m-4">
+  <div class="text-center">
+    <h1>お問合せフォーム</h1>
+    <p>*は入力必須項目です</p>
+  </div>
+  <div class="pl-5">
+    <%= form_with model: @contact do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :name, 'name*'%>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder:"お名前をご入力ください" %>
+      </div>
+      <div class="form-group">
+      <%= f.label :email, 'email*' %>
+      <%= f.text_field :email, class:"form-control", placeholder: "返信先のメールアドレスをご入力ください" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :message, 'message*' %>
+        <%= f.text_area :message, class: 'form-control', placeholder:"お問合せ内容をご入力ください" %>
+      </div>
+      <div>
+        <%= f.submit '送信' %>
+      </div>
+    <% end %>
+  </div>
+</div>

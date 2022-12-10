@@ -16,9 +16,9 @@ document.addEventListener('turbolinks:load', () => {
   //複製コード
   window.copy_image = function (clicked_id){
     //コピーする対象をelementに代入
-    var element = document.getElementById(clicked_id);
+    const element = document.getElementById(clicked_id);
     // コピー元のノードを取得
-    var cloneElement = element.cloneNode(true);
+    const cloneElement = element.cloneNode(true);
     //複製したやつにlassを付け足す
     cloneElement.classList.add("drag-and-drop");
     // class add-drag-and-dropに追加
@@ -27,16 +27,16 @@ document.addEventListener('turbolinks:load', () => {
     //コピーした画像からonclick属性を削除
     cloneElement.removeAttribute("onclick");
     //新しくonclick属性を付与
+    //cloneElement.setAttribute('onmouseenter', 'useMoveable(this.id)');
     cloneElement.setAttribute('onclick', 'useMoveable(this.id)');
-    cloneElement.setAttribute('ondblclick', 'removeImage(this.id)')
-    //cloneElement.setAttribute('ondblclick', 'removeMoveable()')
+    cloneElement.setAttribute('ondblclick', 'removeImage(this.id)');
+    cloneElement.setAttribute('onmouseup', 'removeMoveable(this.id)');
     // コピーした画像のidを書き換える
-    var head = "copy-image";
-    var length = document.querySelector('.add-drag-and-drop').childElementCount;
-    for(var i=1; i <= length; i++){
+    const head = "copy-image";
+    const length = document.querySelector('.add-drag-and-drop').childElementCount;
+    for(let i=1; i <= length; i++){
       cloneElement.id = head + i;
     } 
-
   };  
 
   //moveable実装コード
@@ -61,33 +61,44 @@ document.addEventListener('turbolinks:load', () => {
     move.on("rotate", ({ target, transform }) => {
       target.style.transform = transform
     });
+    
   };
 
   //Moveableの移動枠を消去
   window.removeMoveable = function(){
     const moveableClass = document.querySelectorAll(".rCSwd26qe");
-    for (var i=0; i<moveableClass.length; i++ ){
+    for (let i=0; i<moveableClass.length; i++ ){
       moveableClass[i].style.display = "none";
     }
   };
   
   //画像の保存  
-  var btn = document.getElementById("download-btn");
+  const btn = document.getElementById("download-btn");
   btn.addEventListener("click",() => {
     html2canvas(document.querySelector(".ear-image")).then(canvas => { 
-      let downloadEle = document.createElement("a");
-      downloadEle.href = canvas.toDataURL("image/png");
-      downloadEle.download = "piercing_simulation.png";
+      const downloadEle = document.createElement("a");
+      downloadEle.href = canvas.toDataURL("image/jpeg");
+      downloadEle.download = "piercing_simulation.jpeg";
       downloadEle.click();
     });
   });
 
+  //画像投稿
+  window.postImage = function(){
+    html2canvas(document.querySelector(".ear-image")).then(canvas => { 
+      url = canvas.toDataURL('image/jpeg', 0.8);
+      document.querySelector("#url_field").value = url;
+      document.querySelector("#to_post").submit();
+    });
+  };
+
+
   //コピー画像の消去
-  window.removeImage = function(dblclicked_id){
-    var removeTarget = document.querySelector(`#${dblclicked_id}`);
+  window.removeImage = function(clicked_id){
+    const removeTarget = document.querySelector(`#${clicked_id}`);
     removeTarget.parentNode.removeChild(removeTarget);
     const moveableClass = document.querySelectorAll(".rCSwd26qe");
-    for (var i=0; i<moveableClass.length; i++ ){
+    for (let i=0; i<moveableClass.length; i++ ){
       moveableClass[i].style.display = "none";
     }
   };
