@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-// .drag-and-drop {
-//   cursor: move;
-// }
-
-
 .moveable-control {
   display: block;
   position: absolute;  
@@ -21,6 +15,31 @@
   margin-left: -7px;
   z-index: 10;
 }
+
+@media screen and (min-width: 1400px) {
+  .rCS1h1rqv3 {
+    position: absolute!important;
+    top: 5px!important;
+    left: 70px!important;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .rCS1h1rqv3 {
+    position: absolute!important;
+    top: 5px!important;
+    left: 100px!important;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .rCS1h1rqv3 {
+    position: absolute!important;
+    top: 5px!important;
+    left: 150px!important;
+  }
+}
+
 
 .moveable-direction.moveable-n, .moveable-direction.moveable-w, .moveable-direction.moveable-e, .moveable-direction.moveable-s, .moveable-origin {
   display: none;
@@ -38,6 +57,7 @@
 .drag-and-drop {
   position: absolute;
   top: 100px;
+  left: 300px;
   width: 50px;
-  height: 50px
+  height: 50px;
 }
